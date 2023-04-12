@@ -21,6 +21,7 @@ extension Color {
 
 public struct ColorHelper {
     static let black = Color(hex: 0x2B2B2B)
+    static let black_opacity = Color(hex: 0x000000, alpha: 0.4)
     static let gray_dark = Color(hex: 0xB6B6B6)
     static let gray_light = Color(hex: 0xD9D9D9)
     static let white_dark = Color(hex: 0xEDEDED)
