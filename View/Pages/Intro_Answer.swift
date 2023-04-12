@@ -67,6 +67,13 @@ struct Intro_Answer: View {
         .padding()
         .background(ColorHelper.gray_light)
         .ignoresSafeArea()
+        .navigationBarItems(trailing:
+            Button(action: {}) {
+                NavigationLink(destination: Main_Page()) {
+                    Button_Skip()
+                }
+            }
+        )
     }
 }
 

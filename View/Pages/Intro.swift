@@ -33,7 +33,6 @@ struct Intro: View {
         .padding()
         .background(ColorHelper.gray_light)
         .ignoresSafeArea()
-        
     }
 }
 

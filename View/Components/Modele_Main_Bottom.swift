@@ -32,7 +32,10 @@ struct Modele_Main_Bottom: View {
                 .resizable()
                 .frame(width: 241, height: 128)
                 .offset(x:30,y:10)
-            Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange)
+            NavigationLink(destination: Quiz_Intro()) {
+                Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange)
+            }
+            
         }
         .frame(maxWidth: .infinity, maxHeight: 300, alignment: .leading)
         .background(ColorHelper.white)

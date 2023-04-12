@@ -11,21 +11,32 @@ struct Main_Page: View {
     @State var isPopup = false
     var body: some View {
         ZStack {
-            VStack {
-                TabView {
-                    Module_Main_Card()
-                    Module_Main_Card()
-                    Module_Main_Card()
-                    Module_Main_Card()
-                    Module_Main_Card()
+            
+            ScrollView(showsIndicators: false) {
+                Spacer().frame(height: 50)
+                VStack {
+                    TabView {
+                        Module_Main_Card()
+                        Module_Main_Card()
+                        Module_Main_Card()
+                        Module_Main_Card()
+                        Module_Main_Card()
+                    }
+                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                    .frame(width: .infinity, height: 420)
+                    
+                    Module_Main_Typo_Plus()
+                        .frame(maxWidth: .infinity)
+                    
+                    Spacer().frame(height: 20)
+                    Module_Main_Score()
+                    Spacer().frame(height: 20)
+                    
+                    Modele_Main_Bottom()
+                    .frame(width: .infinity, height: 300)
+                    
+                    Spacer().frame(height: 20)
                 }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                
-                Spacer()
-                
-                Modele_Main_Bottom()
-                
-                Spacer().frame(height: 20)
             }
             .padding()
             .background(ColorHelper.gray_light)
