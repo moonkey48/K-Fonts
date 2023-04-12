@@ -11,6 +11,7 @@ struct Button_Large: View {
     let text: String
     let color_text: Color
     let color_bg: Color
+    
     var body: some View {
         
         Text(text)
@@ -23,6 +24,7 @@ struct Button_Large: View {
         .cornerRadius(CGFloat(20))
     }
 }
+
 
 struct Button_Large_Previews: PreviewProvider {
     static var previews: some View {

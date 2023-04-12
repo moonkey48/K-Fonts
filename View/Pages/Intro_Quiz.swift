@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct Intro_Quiz: View {
-    @State var isSelected = false
+
     @State var alert_text = ""
+    @State var selected_button = ""
     
     var body: some View {
         VStack(spacing: 0) {
@@ -27,8 +28,8 @@ struct Intro_Quiz: View {
                     .multilineTextAlignment(.center)
                     .font(.system(size: 24, weight: .bold))
                 Spacer().frame(height: 10)
-                Text("It means Korean langueage(Hangeul)")
-                    .frame(width: 288)
+                Text("한글(Hangeul) means Korean langueage")
+                    .frame(width: 360)
                     .multilineTextAlignment(.center)
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(ColorHelper.gray_dark)
@@ -46,32 +47,46 @@ struct Intro_Quiz: View {
             
             VStack {
                 HStack {
-                    Button_Large(text: "Retro", color_text: ColorHelper.teal, color_bg: ColorHelper.white )
-                    Button_Large(text: "Old", color_text: ColorHelper.teal, color_bg: ColorHelper.white )
+                    Button_Large(text: "Retro", color_text: selected_button == "Retro" ? ColorHelper.white : ColorHelper.teal,color_bg: selected_button == "Retro" ? ColorHelper.teal : ColorHelper.white )
+                        .onTapGesture {
+                            selected_button = "Retro"
+                        }
+                    Button_Large(text: "Old", color_text: selected_button == "Old" ? ColorHelper.white : ColorHelper.teal, color_bg: selected_button == "Old" ? ColorHelper.teal : ColorHelper.white )
+                        .onTapGesture {
+                            selected_button = "Old"
+                        }
                 }
                 HStack {
-                    Button_Large(text: "Vintage", color_text: ColorHelper.teal, color_bg: ColorHelper.white )
-                    Button_Large(text: "Sharpe", color_text: ColorHelper.teal, color_bg: ColorHelper.white )
+                    Button_Large(text: "Vintage", color_text: selected_button == "Vintage" ? ColorHelper.white : ColorHelper.teal, color_bg: selected_button == "Vintage" ? ColorHelper.teal : ColorHelper.white )
+                        .onTapGesture {
+                            selected_button = "Vintage"
+                        }
+                    Button_Large(text: "Sharp", color_text: selected_button == "Sharp" ? ColorHelper.white : ColorHelper.teal, color_bg: selected_button == "Sharp" ? ColorHelper.teal : ColorHelper.white)
+                        .onTapGesture {
+                            selected_button = "Sharp"
+                        }
                 }
             }
             
-             
+            
+            
             Spacer()
             
             Text_Alert(alert: alert_text)
-            
             Spacer()
-                .frame(height: CGFloat(10))
-            if isSelected{
-                NavigationLink(destination: Intro_Answer()){
+            
+            if selected_button != ""{
+                NavigationLink(destination: Intro_Answer(input: selected_button)){
                     Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange )
                 }
             } else {
+                
                 Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange_light )
                     .onTapGesture {
                         self.alert_text = "select button first"
                     }
             }
+            Spacer().frame(height: 10)
             
         }
         .padding()
