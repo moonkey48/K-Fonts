@@ -23,14 +23,14 @@ struct Main_Page: View {
                         Module_Main_Card()
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                    .frame(width: .infinity, height: 420)
+                    .frame(width: .infinity, height: 410)
                     
                     Module_Main_Typo_Plus()
                         .frame(maxWidth: .infinity)
                     
-                    Spacer().frame(height: 20)
+                    Spacer().frame(height: 10)
                     Module_Main_Score()
-                    Spacer().frame(height: 20)
+                    Spacer().frame(height: 10)
                     
                     Modele_Main_Bottom()
                     .frame(width: .infinity, height: 300)

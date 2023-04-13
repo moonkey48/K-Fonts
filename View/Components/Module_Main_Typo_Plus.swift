@@ -15,9 +15,12 @@ struct Module_Main_Typo_Plus: View {
                 .multilineTextAlignment(.leading)
                 .font(.system(size: 22, weight: .bold))
             Spacer()
-            Image(systemName: "chevron.right")
-                .multilineTextAlignment(.trailing)
-                .font(.system(size: 25, weight: .bold))
+            NavigationLink(destination: Typo_Plus()) {
+                Image(systemName: "chevron.right")
+                    .multilineTextAlignment(.trailing)
+                    .font(.system(size: 25, weight: .bold))
+            }
+            
         }
         .padding()
         .foregroundColor(ColorHelper.teal)
