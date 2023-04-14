@@ -45,6 +45,7 @@ struct Module_Main_Popup: View {
         }
         .frame(maxWidth: .infinity, maxHeight:  .infinity, alignment: .leading)
         .background(ColorHelper.black_opacity)
+        .shadow(color: ColorHelper.shadow, radius: 4, x: 0 , y: 0)
     }
 }
 

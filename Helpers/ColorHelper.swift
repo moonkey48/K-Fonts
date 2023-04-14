@@ -31,6 +31,8 @@ public struct ColorHelper {
     static let orange_light = Color(hex: 0xFAC59F)
     
     static let teal = Color(hex: 0x5CA2B8)
+    
+    static let shadow = Color(hex: 0xA9A9A9)
 }
 
 

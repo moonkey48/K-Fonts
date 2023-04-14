@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Modele_Main_Bottom: View {
+struct Module_Main_Bottom: View {
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
@@ -42,11 +42,12 @@ struct Modele_Main_Bottom: View {
         .foregroundColor(ColorHelper.black)
         .font(.system(size: 20,weight: .bold))
         .cornerRadius(CGFloat(20))
+        .shadow(color: ColorHelper.shadow, radius: 4, x: 0 , y: 0)
     }
 }
 
-struct Modele_Main_Bottom_Previews: PreviewProvider {
+struct Module_Main_Bottom_Previews: PreviewProvider {
     static var previews: some View {
-        Modele_Main_Bottom()
+        Module_Main_Bottom()
     }
 }

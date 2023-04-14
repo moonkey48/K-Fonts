@@ -12,6 +12,7 @@ struct Quiz_Page: View {
     let answer = 1
     let options = ["이탈리안", "이탈리안"]
     @State var selectedAnswer = 0
+    @State var alert_text = false
     
     
     
@@ -68,13 +69,28 @@ struct Quiz_Page: View {
                         selectedAnswer = 2
                     }
             }
-            
             Spacer()
-            NavigationLink(destination: Quiz_Page(pageNum: pageNum + 1) ){
-                Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange )
+            
+            if alert_text {
+                Text_Alert(alert: "select button first")
             }
             
-            Spacer().frame(height: 10)
+            Spacer().frame(height: 20)
+            
+            if selectedAnswer != 0{
+                NavigationLink(destination: Quiz_Page(pageNum: pageNum + 1) ){
+                    Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange )
+                }
+                Spacer().frame(height: 10)
+            } else {
+                
+                Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange_light )
+                    .onTapGesture {
+                        self.alert_text = true
+                    }
+                Spacer().frame(height: 10)
+            }
+                
             
         }
         .padding()

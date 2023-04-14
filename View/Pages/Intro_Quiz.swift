@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Intro_Quiz: View {
 
-    @State var alert_text = ""
+    @State var alert_text = false
     @State var selected_button = ""
     
     var body: some View {
@@ -72,8 +72,10 @@ struct Intro_Quiz: View {
             
             Spacer()
             
-            Text_Alert(alert: alert_text)
-            Spacer()
+            if alert_text {
+                Text_Alert(alert: "select button first")
+            }
+            Spacer().frame(height: 20)
             
             if selected_button != ""{
                 NavigationLink(destination: Intro_Answer(input: selected_button)){
@@ -83,7 +85,7 @@ struct Intro_Quiz: View {
                 
                 Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange_light )
                     .onTapGesture {
-                        self.alert_text = "select button first"
+                        self.alert_text = true
                     }
             }
             Spacer().frame(height: 10)

@@ -31,6 +31,7 @@ struct Module_Main_Score: View {
         .frame(height: 80)
         .background(ColorHelper.white)
         .cornerRadius(CGFloat(20))
+        .shadow(color: ColorHelper.shadow, radius: 4, x: 0 , y: 0)
     }
 }
 

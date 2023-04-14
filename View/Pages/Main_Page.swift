@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct Main_Page: View {
-    @State var isPopup = false
+    @State var isPopup = true
+    
     var body: some View {
         ZStack {
             
@@ -28,11 +29,11 @@ struct Main_Page: View {
                     Module_Main_Typo_Plus()
                         .frame(maxWidth: .infinity)
                     
-                    Spacer().frame(height: 10)
+                    Spacer().frame(height: 20)
                     Module_Main_Score()
-                    Spacer().frame(height: 10)
+                    Spacer().frame(height: 20)
                     
-                    Modele_Main_Bottom()
+                    Module_Main_Bottom()
                     .frame(width: .infinity, height: 300)
                     
                     Spacer().frame(height: 20)

@@ -1,42 +1,69 @@
-//
-//  SwiftUIView.swift
-//  
-//
-//  Created by Seungui Moon on 2023/04/13.
-//
-
 import SwiftUI
 
-import SwiftUI
-
-struct Test: View {
-    @State private var offsetValue: CGFloat = -50.0
+struct Drag: View {
+    // 📍 넣고싶은 이미지 이름
+    let imageList: [String] = ["avocado", "chocolate"]
+    // 📍 기본 이미지 => 밥그릇이미지 이름
+    @State var imageName = "white"
 
     var body: some View {
-        Image("quiz_intro")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 200, height: 200)
-            .clipped()
-            .overlay(
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .background(
-                        LinearGradient(gradient: Gradient(colors: [.clear, .black]), startPoint: .leading, endPoint: .trailing)
-                    )
-                    .frame(width: 100)
-                    .offset(x: offsetValue)
-            )
-            .onAppear {
-                withAnimation(.easeInOut(duration: 2.0)) {
-                    offsetValue = 50.0 // 이미지를 반으로 자른 영역을 오른쪽으로 이동
-                }
+        VStack {
+            Spacer()
+            
+            HStack {
+                ForEach(self.imageList, id: \.self, content: { img in
+                    Image(img)
+                        .font(.title)
+                        .onDrag { NSItemProvider(object: img as NSString) }
+                })
             }
+
+            Spacer()
+            
+            // 📍 여기가 drop 받는 이미지 위치, 밥그릇을 여기 두시면 됩니다.
+            Image(imageName)
+                .resizable()
+                .frame(width: 100, height: 100)
+                .shadow(color: ColorHelper.shadow, radius: 4, x: 0 , y: 0)
+                .onDrop(of: ["public.text"], delegate: DropDelegateObject(imageName: $imageName))
+            
+            Spacer()
+            
+        }
+
     }
 }
 
-struct Test_Previews: PreviewProvider {
-    static var previews: some View {
-        Test()
+struct DropDelegateObject: DropDelegate {
+    @Binding var imageName: String
+
+    func dropUpdated(info: DropInfo) -> DropProposal? {
+        if self.imageName == "" {
+            return DropProposal(operation: .forbidden)
+        } else {
+            return nil
+        }
+    }
+
+    
+    func performDrop(info: DropInfo) -> Bool {
+        
+        if let item = info.itemProviders(for: ["public.text"]).first {
+            
+            item.loadItem(forTypeIdentifier: "public.text", options: nil) { (text, err) in
+                if let data = text as? Data {
+                    
+                    // 📍 여기서 드래그한 이미지 이름을 받아서
+                    let inputStr = String(decoding: data, as: UTF8.self)
+
+                    // 📍 Binding한 image에 이 입력을 하면 위에 @State로 설정한 이미지 이름 변경
+                    self.imageName = inputStr
+                }
+            }
+        } else {
+            return false
+        }
+
+        return true
     }
 }

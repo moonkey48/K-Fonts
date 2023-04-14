@@ -11,19 +11,20 @@ struct Intro: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Spacer()
-            VStack {
-                Image("Intro_main")
-                    .resizable()
-                    .frame(width: 200, height: 54)
-                Spacer().frame(height: 20)
-                Text("Let’s Learn Korean Fonts")
-                    .frame(width: 200)
-                    .multilineTextAlignment(.center)
-            }
+            Spacer().frame(height: 10)
+            Image("intro_main2")
+                .resizable()
+                .frame(width: 148, height: 476)
+            
             Spacer()
             
-            NavigationLink(destination: Intro_Quiz()){
+            Image("intro_logo")
+                .resizable()
+                .frame(width: 138, height: 99)
+            
+            Spacer().frame(height: 50)
+            
+            NavigationLink(destination: Intro_Start()){
                 Button_Large(text: "About Korean Fonts", color_text: ColorHelper.white,  color_bg: ColorHelper.orange)
             }
             

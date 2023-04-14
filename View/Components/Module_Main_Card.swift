@@ -47,6 +47,7 @@ struct Module_Main_Card: View {
         .foregroundColor(ColorHelper.black)
         .font(.system(size: 20,weight: .bold))
         .cornerRadius(CGFloat(20))
+        .shadow(color: ColorHelper.shadow, radius: 4, x: 0 , y: 0)
     }
 }
 

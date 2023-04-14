@@ -22,6 +22,7 @@ struct Button_Quiz: View {
             .frame(maxWidth: .infinity, maxHeight: 130, alignment: .center)
             .background(ColorHelper.teal)
             .cornerRadius(20)
+            .shadow(color: ColorHelper.shadow, radius: 4, x: 0 , y: 0)
         } else {
             VStack {
                 Text("button")
@@ -32,6 +33,7 @@ struct Button_Quiz: View {
             .frame(maxWidth: .infinity, maxHeight: 130, alignment: .center)
             .background(ColorHelper.white)
             .cornerRadius(20)
+            .shadow(color: ColorHelper.shadow, radius: 4, x: 0 , y: 0)
         }
         
     }

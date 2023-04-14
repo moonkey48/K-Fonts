@@ -34,6 +34,7 @@ struct Module_Quiz_Step: View {
         .padding(3)
         .background(ColorHelper.white)
         .cornerRadius(13)
+        .shadow(color: ColorHelper.shadow, radius: 4, x: 0 , y: 0)
         
     }
 }
