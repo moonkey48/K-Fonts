@@ -9,8 +9,12 @@ import SwiftUI
 
 struct Quiz_Page: View {
     let pageNum: Int
-    let answer = 1
-    let options = ["이탈리안", "이탈리안"]
+    var quizData: QuizData
+    var quizModel = Quiz_Model.instance
+    
+    
+    @State var quizResultBefore: Bool = false
+    @State var quizResultCurrent: Bool = false
     @State var selectedAnswer = 0
     @State var alert_text = false
     
@@ -21,27 +25,27 @@ struct Quiz_Page: View {
             Spacer().frame(height: 90)
     
             HStack {
-                ForEach(1..<11) { number in
-                    Module_Quiz_Step(step: number, isCurrent: pageNum == number ? true : false, isCorrect: false)                    
+                ForEach(1..<6) { number in
+                    Module_Quiz_Step(step: number, currentState: pageNum + 1 == number ? .current : quizModel.currentQuizState[number - 1])
                 }
             }
             
             Spacer().frame(height: 20)
             
             VStack(alignment: .leading) {
-                Text("Quiz 1")
+                Text("Quiz \(pageNum + 1)")
                     .multilineTextAlignment(.leading)
                     .font(.system(size: 26, weight: .bold))
                     .foregroundColor(ColorHelper.orange)
                 Spacer().frame(height: 10)
                 
-                Text("which is good case for italian food signage?")
+                Text("\(quizData.mainQ)")
                     .multilineTextAlignment(.leading)
                     .font(.system(size: 24, weight: .bold))
                 
                 Spacer().frame(height: 20)
                 
-                Text("* 이탈리안 means Itanlian in korean")
+                Text("\(quizData.subQ)")
                     .multilineTextAlignment(.leading)
                     .font(.system(size: 18, weight: .medium))
                     .foregroundColor(ColorHelper.gray_dark)
@@ -59,28 +63,47 @@ struct Quiz_Page: View {
             Spacer().frame(height: 25)
             
             VStack {
-                Button_Quiz(selectedAnswer: $selectedAnswer,buttonNum: 1)
+                Button_Quiz(selectedAnswer: $selectedAnswer,buttonNum: 1, buttonText: "\(quizData.options[0])")
                     .onTapGesture {
                         selectedAnswer = 1
+                        quizResultCurrent = quizModel.checkAnswer(pageNum: pageNum, quizNum: quizData.id, selected:  selectedAnswer)
+                        print(quizResultCurrent)
                     }
                 Spacer().frame(height: 10)
-                Button_Quiz(selectedAnswer: $selectedAnswer, buttonNum: 2)
+                Button_Quiz(selectedAnswer: $selectedAnswer, buttonNum: 2, buttonText: "\(quizData.options[1])")
                     .onTapGesture {
                         selectedAnswer = 2
+                        quizResultCurrent = quizModel.checkAnswer(pageNum: pageNum, quizNum: quizData.id, selected:  selectedAnswer)
+                        print(quizResultCurrent)
                     }
             }
             Spacer()
-            
-            if alert_text {
-                Text_Alert(alert: "select button first")
+            Group {
+                if alert_text {
+                    Text_Alert(alert: "select button first")
+                }
+                
+                Text(quizResultBefore ? "correct" : "")
+                
+                Spacer().frame(height: 20)
             }
             
-            Spacer().frame(height: 20)
             
             if selectedAnswer != 0{
-                NavigationLink(destination: Quiz_Page(pageNum: pageNum + 1) ){
-                    Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange )
+                // 선택 결과 or ""
+                // 다음 페이지 숫자
+                // 다음 문제 or 마지막 페이지
+                if pageNum == 4 {
+                    NavigationLink(destination: Quiz_Result(result: quizModel.currentQuizState.filter{ $0 == .correct }.count) ){
+                        Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange )
+                    }
+                } else {
+                    NavigationLink(destination: Quiz_Page(pageNum: pageNum + 1, quizData: quizModel.quizList[quizModel.randomQuizList[pageNum + 1]], quizResultBefore: quizResultCurrent) ){
+                        Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange )
+                    }
                 }
+                
+                
                 Spacer().frame(height: 10)
             } else {
                 
@@ -96,11 +119,15 @@ struct Quiz_Page: View {
         .padding()
         .background(ColorHelper.gray_light)
         .ignoresSafeArea()
+        .onAppear{
+            print(quizModel.currentQuizState)
+            print(quizResultBefore)
+        }
     }
 }
 
 struct Quiz_Page_Previews: PreviewProvider {
     static var previews: some View {
-        Quiz_Page(pageNum: 1)
+        Quiz_Page(pageNum: 0, quizData: Quiz_Model.instance.quizList[Quiz_Model.instance.randomQuizList[0]])
     }
 }

@@ -16,21 +16,23 @@ enum Level: Int {
 
 struct Quiz_Result: View {
     var result: Int
+    var quizModel = Quiz_Model.instance
     var result_comment = [
+        "New languages are difficult for everyone. Study a little bit more on the main page",
         "New languages are difficult for everyone. Study a little bit more on the main page",
         "It wasn't bad. study a little more!",
         "WOW! You have a great Korean typography skill!",
+        "WOW! You have a great Korean typography skill!",
         "Perfect! You totally understand Korean typography!",
     ]
-    var level: Level = .bronze
     
     var body: some View {
         VStack(spacing: 0) {
             Spacer().frame(height: 90)
-    
+
             HStack {
-                ForEach(1..<11) { number in
-                    Module_Quiz_Step(step: number, isCurrent: false, isCorrect: false)
+                ForEach(1..<6) { number in
+                    Module_Quiz_Step(step: number, currentState: quizModel.currentQuizState[number - 1])
                 }
             }
             
@@ -43,10 +45,10 @@ struct Quiz_Result: View {
                     .foregroundColor(ColorHelper.gray_dark)
                 Spacer().frame(height: 10)
                 
-                Text("\(result) / 10")
+                Text("\(result) / 5")
                     .multilineTextAlignment(.center)
                     .font(.system(size: 80, weight: .bold))
-                    .foregroundColor(result < 5 ? ColorHelper.orange : ColorHelper.teal)
+                    .foregroundColor(result < 3 ? ColorHelper.orange : ColorHelper.teal)
             }
             .zIndex(1)
             .padding(30)
@@ -60,7 +62,7 @@ struct Quiz_Result: View {
             
             VStack {
                 VStack{
-                    Text("Perfect! You totally understand Korean typography!")
+                    Text("\(result_comment[result])")
                         .multilineTextAlignment(.leading)
                         .font(.system(size: 26, weight: .bold))
                         .foregroundColor(ColorHelper.black)
@@ -85,8 +87,14 @@ struct Quiz_Result: View {
             Spacer()
             
             HStack {
-                Button_Large(text: "Try Again", color_text: ColorHelper.white, color_bg: ColorHelper.orange)
-                Button_Large(text: "Complete", color_text: ColorHelper.white, color_bg: ColorHelper.teal)
+                NavigationLink(destination: Quiz_Intro()) {
+                    Button_Large(text: "Try Again", color_text: ColorHelper.white, color_bg: ColorHelper.orange)
+                }
+                NavigationLink(destination: Main_Page()) {
+                    Button_Large(text: "Complete", color_text: ColorHelper.white, color_bg: ColorHelper.teal)
+                }
+                
+                
             }
             
             Spacer().frame(height: 25)
@@ -96,6 +104,9 @@ struct Quiz_Result: View {
         .padding()
         .background(ColorHelper.gray_light)
         .ignoresSafeArea()
+        .onAppear {
+            quizModel.lastScore = result
+        }
         
     }
 }

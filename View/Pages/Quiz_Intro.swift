@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Quiz_Intro: View {
+    var quizModel = Quiz_Model.instance
     var body: some View {
         VStack(spacing: 0) {
             Spacer().frame(height: 90)
@@ -59,7 +60,7 @@ struct Quiz_Intro: View {
             .cornerRadius(CGFloat(20))
             
             Spacer()
-            NavigationLink(destination: Quiz_Page(pageNum: 1) ){
+            NavigationLink(destination: Quiz_Page(pageNum: 0, quizData: Quiz_Model.instance.quizList[Quiz_Model.instance.randomQuizList[0]]) ){
                 Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange )
             }
             
@@ -69,6 +70,24 @@ struct Quiz_Intro: View {
         .padding()
         .background(ColorHelper.gray_light)
         .ignoresSafeArea()
+        .onAppear {
+            var used:[Int] = []
+            
+            while used.count < 5 {
+                let randomInt = Int.random(in: 0..<10)
+                if !used.contains(randomInt) {
+                    used.append(randomInt)
+                }
+            }
+            quizModel.randomQuizList = []
+            for i in used {
+                quizModel.randomQuizList.append(i)
+            }
+            
+            quizModel.currentQuizState = [.yet, .yet, .yet, .yet, .yet]
+            
+            print(quizModel.randomQuizList)
+        }
     }
 }
 

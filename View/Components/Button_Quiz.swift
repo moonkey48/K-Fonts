@@ -10,11 +10,12 @@ import SwiftUI
 struct Button_Quiz: View {
     @Binding var selectedAnswer: Int
     let buttonNum: Int
+    let buttonText: String
     
     var body: some View {
         if selectedAnswer == buttonNum {
             VStack {
-                Text("button")
+                Text("\(buttonText)")
                     .font(.system(size: 30, weight: .bold))
             }
             .padding(30)
@@ -25,7 +26,7 @@ struct Button_Quiz: View {
             .shadow(color: ColorHelper.shadow, radius: 4, x: 0 , y: 0)
         } else {
             VStack {
-                Text("button")
+                Text("\(buttonText)")
                     .font(.system(size: 30, weight: .bold))
             }
             .padding(30)

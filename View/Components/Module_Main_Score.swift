@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Module_Main_Score: View {
-    var score: Int = 0
+    var score: Int = Quiz_Model.instance.lastScore
     var body: some View {
         HStack(alignment: .center) {
             Text("K-Font Level")
@@ -16,11 +16,11 @@ struct Module_Main_Score: View {
                 .font(.system(size: 22, weight: .bold))
             Spacer()
             VStack(alignment: .trailing) {
-                Text("\(score) / 10")
+                Text("\(score) / 5")
                     .font(.system(size: 30, weight: .bold))
                     .foregroundColor(ColorHelper.white)
                     .frame(width: 140, height: 80)
-                    .background(ColorHelper.orange)
+                    .background(score < 3 ? ColorHelper.orange : ColorHelper.teal)
             }
             .cornerRadius(20)
             
