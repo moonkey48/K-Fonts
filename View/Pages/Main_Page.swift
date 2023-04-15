@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct Main_Page: View {
-    @State var isPopup = true
+    @State var isPopup = false
+    let fontList = Font_Model.instance.fontList
     
     var body: some View {
         ZStack {
@@ -17,11 +18,9 @@ struct Main_Page: View {
                 Spacer().frame(height: 50)
                 VStack {
                     TabView {
-                        Module_Main_Card()
-                        Module_Main_Card()
-                        Module_Main_Card()
-                        Module_Main_Card()
-                        Module_Main_Card()
+                        ForEach(fontList, id: \.id) { font in
+                            Module_Main_Card(fontData: font)
+                        }
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                     .frame(width: .infinity, height: 410)

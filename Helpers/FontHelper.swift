@@ -8,6 +8,23 @@
 import SwiftUI
 
 
+public enum FontWeigt {
+    case Regular
+    case Medium
+    case SemiBold
+    case Bold
+    case ExtraBold
+}
+
+public struct CFont {
+    
+    static func getFont(fontName: String = "Pretendard", size: Int = 20, weight: FontWeigt = .Medium) -> Font {
+        
+        return Font.custom("\(fontName)-\(weight)",  size: CGFloat(size))
+    }
+}
+
+
 public struct OTFFontObject {
     public static func registerFonts(fontName: String) {
         registerFont(bundle: Bundle.main , fontName: fontName, fontExtension: ".otf") //change according to your ext.

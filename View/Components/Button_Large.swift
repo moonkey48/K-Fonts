@@ -19,7 +19,7 @@ struct Button_Large: View {
             .foregroundColor(color_text)
             .frame(maxWidth: .infinity, alignment: .center)
             .frame(height: 60)
-            .font(Font.custom("PretendardVariable", size: CGFloat(20)))
+            .font(CFont.getFont(size: 20, weight: .Bold))
             .background(color_bg)
             .cornerRadius(CGFloat(20))
             .shadow(color: ColorHelper.shadow, radius: 4, x: 0 , y: 0)

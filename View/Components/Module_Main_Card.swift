@@ -8,41 +8,45 @@
 import SwiftUI
 
 struct Module_Main_Card: View {
+    let fontData: FontData
     var body: some View {
         VStack {
-            Group {
-                Spacer().frame(height: 20)
-                Image("Intro_kor")
-                    .resizable()
-                    .frame(width: 161, height: 99)
-                Text("GungSeo font")
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(ColorHelper.gray_dark)
-                    .font(.system(size: 20, weight: .medium))
-                Spacer().frame(height: 15)
+            VStack {
+                Spacer()
+                Group {
+                    Image(fontData.mainName)
+                    Text("\(fontData.name) font")
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(ColorHelper.gray_dark)
+                        .font(.system(size: 20, weight: .medium))
+                }
+                
+                Spacer()
                 Divider()
                 Spacer().frame(height: 15)
-                Image("fonts_ex_gungseo")
-                    .resizable()
-                    .frame(width: 247, height: 23)
+                Image(fontData.subName)
+                    
                 Spacer().frame(height: 10)
-                Text("Hello, this is korean language")
+                Text(fontData.subDescription)
                     .frame(width: 360)
                     .multilineTextAlignment(.center)
                     .font(.system(size: 16, weight: .medium))
                     .foregroundColor(ColorHelper.gray_dark)
-                Spacer().frame(height: 20)
+                Spacer().frame(height: 10)
             }
-           
-            Group {
-                HStack {
-                    Tag_Font(tag_name: "Old")
-                    Tag_Font(tag_name: "Strong")
-                }
+            Spacer()
+            
+            HStack {
+                
+                Tag_Font(tag_name: "\(fontData.tags[0])")
+                Tag_Font(tag_name: "\(fontData.tags[1])")
+                
             }
+            Spacer().frame(height: 10)
+            
         }
         .padding()
-        .frame(width: 340, height: 330,alignment: .top)
+        .frame(width: 340, height: 330,alignment: .center)
         .background(ColorHelper.white)
         .foregroundColor(ColorHelper.black)
         .font(.system(size: 20,weight: .bold))
@@ -53,6 +57,6 @@ struct Module_Main_Card: View {
 
 struct Module_Main_Card_Previews: PreviewProvider {
     static var previews: some View {
-        Module_Main_Card()
+        Module_Main_Card(fontData: FontData(name: "EF_watermelonSalad", id: 1, mainName: "fontMain1", subName: "fontSub1", subDescription: "Hello my name is dohyeon", tags: [.Trust, .Personal]))
     }
 }
