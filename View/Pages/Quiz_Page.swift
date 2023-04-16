@@ -41,7 +41,7 @@ struct Quiz_Page: View {
                 
                 Text("\(quizData.mainQ)")
                     .multilineTextAlignment(.leading)
-                    .font(.system(size: 24, weight: .bold))
+                    .font(.system(size: 20, weight: .bold))
                 
                 Spacer().frame(height: 20)
                 
@@ -54,7 +54,7 @@ struct Quiz_Page: View {
             .lineSpacing(3)
             .zIndex(1)
             .padding(30)
-            .frame(maxWidth: .infinity, maxHeight: 210, alignment: .leading)
+            .frame(maxWidth: .infinity, maxHeight: 270, alignment: .leading)
             .background(ColorHelper.white)
             .foregroundColor(ColorHelper.black)
             .font(.system(size: 20,weight: .bold))
@@ -63,14 +63,14 @@ struct Quiz_Page: View {
             Spacer().frame(height: 25)
             
             VStack {
-                Button_Quiz(selectedAnswer: $selectedAnswer,buttonNum: 1, buttonText: "\(quizData.options[0])")
+                Button_Quiz(selectedAnswer: $selectedAnswer,buttonNum: 1, quizNum: quizData.id)
                     .onTapGesture {
                         selectedAnswer = 1
                         quizResultCurrent = quizModel.checkAnswer(pageNum: pageNum, quizNum: quizData.id, selected:  selectedAnswer)
                         print(quizResultCurrent)
                     }
                 Spacer().frame(height: 10)
-                Button_Quiz(selectedAnswer: $selectedAnswer, buttonNum: 2, buttonText: "\(quizData.options[1])")
+                Button_Quiz(selectedAnswer: $selectedAnswer, buttonNum: 2, quizNum: quizData.id)
                     .onTapGesture {
                         selectedAnswer = 2
                         quizResultCurrent = quizModel.checkAnswer(pageNum: pageNum, quizNum: quizData.id, selected:  selectedAnswer)
@@ -120,8 +120,7 @@ struct Quiz_Page: View {
         .background(ColorHelper.gray_light)
         .ignoresSafeArea()
         .onAppear{
-            print(quizModel.currentQuizState)
-            print(quizResultBefore)
+            print(quizData.id)
         }
     }
 }

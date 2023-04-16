@@ -9,11 +9,11 @@ import SwiftUI
 
 struct Main_Page: View {
     @State var isPopup = false
+    var quizModel = Quiz_Model.instance
     let fontList = Font_Model.instance.fontList
     
     var body: some View {
         ZStack {
-            
             ScrollView(showsIndicators: false) {
                 Spacer().frame(height: 50)
                 VStack {
@@ -46,6 +46,26 @@ struct Main_Page: View {
                 Module_Main_Popup(isPopup: $isPopup)
             }
         }
+        .navigationBarHidden(true)
+        .onAppear {
+            var used:[Int] = []
+            
+            while used.count < 5 {
+                let randomInt = Int.random(in: 0..<10)
+                if !used.contains(randomInt) {
+                    used.append(randomInt)
+                }
+            }
+            quizModel.randomQuizList = []
+            for i in used {
+                quizModel.randomQuizList.append(i)
+            }
+            
+            quizModel.currentQuizState = [.yet, .yet, .yet, .yet, .yet]
+            
+            print(quizModel.randomQuizList)
+        }
+        
     }
 }
 

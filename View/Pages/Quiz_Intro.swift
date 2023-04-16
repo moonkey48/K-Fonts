@@ -70,24 +70,7 @@ struct Quiz_Intro: View {
         .padding()
         .background(ColorHelper.gray_light)
         .ignoresSafeArea()
-        .onAppear {
-            var used:[Int] = []
-            
-            while used.count < 5 {
-                let randomInt = Int.random(in: 0..<10)
-                if !used.contains(randomInt) {
-                    used.append(randomInt)
-                }
-            }
-            quizModel.randomQuizList = []
-            for i in used {
-                quizModel.randomQuizList.append(i)
-            }
-            
-            quizModel.currentQuizState = [.yet, .yet, .yet, .yet, .yet]
-            
-            print(quizModel.randomQuizList)
-        }
+        
     }
 }
 
