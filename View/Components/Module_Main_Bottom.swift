@@ -13,12 +13,12 @@ struct Module_Main_Bottom: View {
             VStack(alignment: .leading) {
                 Text("Do you want to test your korean typography skill?")
                     .multilineTextAlignment(.leading)
-                    .font(.system(size: 22, weight: .regular))
+                    .font(CFont.getFont(size: 22, weight: .Regular))
 
                 Spacer().frame(height: 10)
                 Text("Try Quiz!")
                     .multilineTextAlignment(.leading)
-                    .font(.system(size: 25, weight: .bold))
+                    .font(CFont.getFont(size: 25, weight: .Bold))
                     .foregroundColor(ColorHelper.orange)
             }
             .offset(x:0, y:20)

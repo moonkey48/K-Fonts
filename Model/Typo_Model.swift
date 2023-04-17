@@ -18,7 +18,7 @@ struct TypoItem {
 struct Typo_Model {
     let TypoList: [TypoItem] = [
         TypoItem(id: 0,title: "Serif vs San-Serif", imageName: "Typo_Story1", description: "When Web Designer or Developer makes service for multinational environment, word-break: keep-all divide text line with word."),
-        TypoItem(id: 1,title: "Serif vs San-Serif", imageName: "Typo_Story1", description: "When Web Designer or Developer makes service for multinational environment, word-break: keep-all divide text line with word."),
+        TypoItem(id: 1,title: "word-break: keep-all", imageName: "Typo_Story2", description: "When Web Designer or Developer makes service for multinational environment, word-break: keep-all divide text line with word."),
     ]
     
     static let instance = Typo_Model()

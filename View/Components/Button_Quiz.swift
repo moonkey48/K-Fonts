@@ -16,8 +16,6 @@ struct Button_Quiz: View {
         if selectedAnswer == buttonNum {
             VStack {
                 Image("q\(quizNum + 1)Option\(buttonNum)")
-//                Text("\(buttonText)")
-//                    .font(.system(size: 30, weight: .bold))
             }
             .padding(30)
             .foregroundColor(ColorHelper.white)
@@ -28,8 +26,6 @@ struct Button_Quiz: View {
         } else {
             VStack {
                 Image("q\(quizNum + 1)Option\(buttonNum)")
-//                Text("\(buttonText)")
-//                    .font(.system(size: 30, weight: .bold))
             }
             .padding(30)
             .foregroundColor(ColorHelper.black)

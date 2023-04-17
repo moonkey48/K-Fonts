@@ -26,12 +26,13 @@ struct Intro_Quiz: View {
                 Text("How do you feel about the korean letter above?")
                     .frame(width: 288)
                     .multilineTextAlignment(.center)
-                    .font(.system(size: 24, weight: .bold))
+                    .font(CFont.getFont(size: 24, weight: .SemiBold))
+                
                 Spacer().frame(height: 10)
                 Text("한글(Hangeul) means Korean langueage")
                     .frame(width: 360)
                     .multilineTextAlignment(.center)
-                    .font(.system(size: 16, weight: .bold))
+                    .font(CFont.getFont(size: 16, weight: .SemiBold))
                     .foregroundColor(ColorHelper.gray_dark)
                 Spacer().frame(height: 70)
             }
@@ -72,10 +73,11 @@ struct Intro_Quiz: View {
             
             Spacer()
             
-            if alert_text {
-                Text_Alert(alert: "select button first")
-            }
-            Spacer().frame(height: 20)
+            Text_Alert(alert: "Select button first")
+                .opacity(alert_text ? 1 : 0)
+                
+            
+            Spacer()
             
             if selected_button != ""{
                 NavigationLink(destination: Intro_Answer(input: selected_button)){
@@ -88,7 +90,7 @@ struct Intro_Quiz: View {
                         self.alert_text = true
                     }
             }
-            Spacer().frame(height: 10)
+//            Spacer().frame(height: 10)
             
         }
         .padding()

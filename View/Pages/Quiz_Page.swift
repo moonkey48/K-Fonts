@@ -35,19 +35,19 @@ struct Quiz_Page: View {
             VStack(alignment: .leading) {
                 Text("Quiz \(pageNum + 1)")
                     .multilineTextAlignment(.leading)
-                    .font(.system(size: 26, weight: .bold))
+                    .font(CFont.getFont(size: 26, weight: .Bold))
                     .foregroundColor(ColorHelper.orange)
                 Spacer().frame(height: 10)
                 
                 Text("\(quizData.mainQ)")
                     .multilineTextAlignment(.leading)
-                    .font(.system(size: 20, weight: .bold))
+                    .font(CFont.getFont(size: 20, weight: .Bold))
                 
                 Spacer().frame(height: 20)
                 
                 Text("\(quizData.subQ)")
                     .multilineTextAlignment(.leading)
-                    .font(.system(size: 18, weight: .medium))
+                    .font(CFont.getFont(size: 18, weight: .Medium))
                     .foregroundColor(ColorHelper.gray_dark)
                 
             }
@@ -84,7 +84,8 @@ struct Quiz_Page: View {
                 }
                 
                 Text(quizResultBefore ? "correct" : "")
-                
+                    .font(CFont.getFont(size: 22, weight: .Bold))
+                    .foregroundColor(ColorHelper.orange)
                 Spacer().frame(height: 20)
             }
             

@@ -18,7 +18,7 @@ struct Module_Main_Card: View {
                     Text("\(fontData.name) font")
                         .multilineTextAlignment(.center)
                         .foregroundColor(ColorHelper.gray_dark)
-                        .font(.system(size: 20, weight: .medium))
+                        .font(CFont.getFont(size: 20, weight: .Medium))
                 }
                 
                 Spacer()
@@ -30,17 +30,15 @@ struct Module_Main_Card: View {
                 Text(fontData.subDescription)
                     .frame(width: 360)
                     .multilineTextAlignment(.center)
-                    .font(.system(size: 16, weight: .medium))
+                    .font(CFont.getFont(size: 16, weight: .Medium))
                     .foregroundColor(ColorHelper.gray_dark)
                 Spacer().frame(height: 10)
             }
             Spacer()
             
             HStack {
-                
                 Tag_Font(tag_name: "\(fontData.tags[0])")
                 Tag_Font(tag_name: "\(fontData.tags[1])")
-                
             }
             Spacer().frame(height: 10)
             

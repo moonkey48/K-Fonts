@@ -22,13 +22,13 @@ struct Intro_Start: View {
                     
                     Text("Recently, many people have become interested in Korea and are trying to learn Korean a lot.")
                         .multilineTextAlignment(.leading)
-                        .font(.system(size: 18, weight: .semibold))
+                        .font(CFont.getFont(size: 18, weight: .SemiBold))
                     
                     Spacer().frame(height: 20)
                     
                     Text("However, Korean fonts are often used without knowing. Let's understand Korean fonts together and use Korean more appropriately and beautifully")
                         .multilineTextAlignment(.leading)
-                        .font(.system(size: 18, weight: .semibold))
+                        .font(CFont.getFont(size: 18, weight: .SemiBold))
                     
                     Spacer().frame(height: 20)
                     
@@ -47,6 +47,7 @@ struct Intro_Start: View {
             .frame(maxWidth: .infinity, maxHeight: 570, alignment: .leading)
             .background(ColorHelper.white)
             .foregroundColor(ColorHelper.black)
+            .font(CFont.getFont())
             .font(.system(size: 20,weight: .bold))
             .cornerRadius(CGFloat(20))
             

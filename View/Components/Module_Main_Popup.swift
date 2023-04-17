@@ -18,7 +18,7 @@ struct Module_Main_Popup: View {
                     Text("If Korean typography is not used well, it will be difficult to convey its meaning. I hope this app will help you understand Korean typography")
                         .multilineTextAlignment(.center)
                         .foregroundColor(ColorHelper.black)
-                        .font(.system(size: 22, weight: .bold))
+                        .font(CFont.getFont(size: 22, weight: .Bold))
                         .lineSpacing(6)
                 }
                 .padding()

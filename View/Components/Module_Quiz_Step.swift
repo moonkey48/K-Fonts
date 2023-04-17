@@ -24,7 +24,8 @@ struct Module_Quiz_Step: View {
                 VStack {
                     Text("\(step)")
                         .foregroundColor(ColorHelper.white)
-                        .font(.system(size: 15, weight: .bold))
+                        .font(CFont.getFont(size: 15, weight: .Bold))
+                        
                 }
                 .frame(width: 60, height: 30)
                 .padding(3)
@@ -34,7 +35,7 @@ struct Module_Quiz_Step: View {
                 VStack {
                     Text("\(step)")
                         .foregroundColor(ColorHelper.black)
-                        .font(.system(size: 15, weight: .bold))
+                        .font(CFont.getFont(size: 15, weight: .Bold))
                 }
                 .frame(width: 60, height: 30)
                 .padding(3)
@@ -44,7 +45,7 @@ struct Module_Quiz_Step: View {
                 VStack {
                     Text("\(step)")
                         .foregroundColor(ColorHelper.gray_dark)
-                        .font(.system(size: 15, weight: .bold))
+                        .font(CFont.getFont(size: 15, weight: .Bold))
                 }
                 .frame(width: 60, height: 30)
                 .padding(3)
@@ -54,7 +55,7 @@ struct Module_Quiz_Step: View {
                 VStack {
                     Text("\(step)")
                         .foregroundColor(ColorHelper.white)
-                        .font(.system(size: 15, weight: .bold))
+                        .font(CFont.getFont(size: 15, weight: .Bold))
                 }
                 .frame(width: 60, height: 30)
                 .padding(3)

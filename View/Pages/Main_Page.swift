@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct Main_Page: View {
-    @State var isPopup = false
+    @State var isPopup = true
     var quizModel = Quiz_Model.instance
     let fontList = Font_Model.instance.fontList
     
     var body: some View {
         ZStack {
             ScrollView(showsIndicators: false) {
-                Spacer().frame(height: 50)
+                Spacer().frame(height: 20)
                 VStack {
                     TabView {
                         ForEach(fontList, id: \.id) { font in

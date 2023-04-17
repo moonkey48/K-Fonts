@@ -10,7 +10,7 @@ import SwiftUI
 struct Button_Skip: View {
     var body: some View {
         Text("Skip")
-            .font(.system(size: 20, weight: .regular))
+            .font(CFont.getFont(size: 18, weight: .Bold))
             .foregroundColor(ColorHelper.teal)
     }
 }

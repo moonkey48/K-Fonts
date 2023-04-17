@@ -14,7 +14,8 @@ struct Module_Typo: View {
         VStack {
             Spacer().frame(height: 30)
             Text(typoItem.title)
-                .font(CFont.getFont(size: 24,weight: .Bold))
+                .font(CFont.getFont(size: 24, weight: .Bold))
+                
             Divider()
             
             Image(typoItem.imageName)
@@ -25,6 +26,7 @@ struct Module_Typo: View {
         .frame(maxWidth: .infinity, alignment: .center)
         .background(ColorHelper.white)
         .cornerRadius(CGFloat(20))
+        .shadow(color: ColorHelper.shadow, radius: 4, x: 0 , y: 0)
         
         Spacer().frame(height: 10)
         
@@ -39,6 +41,7 @@ struct Module_Typo: View {
         .padding(10)
         .background(ColorHelper.white)
         .cornerRadius(CGFloat(20))
+        .shadow(color: ColorHelper.shadow, radius: 4, x: 0 , y: 0)
     }
 }
 

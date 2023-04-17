@@ -13,18 +13,17 @@ struct Module_Main_Score: View {
         HStack(alignment: .center) {
             Text("K-Font Level")
                 .multilineTextAlignment(.leading)
-                .font(.system(size: 22, weight: .bold))
+                .font(CFont.getFont(size: 22, weight: .Bold))
+                
             Spacer()
             VStack(alignment: .trailing) {
                 Text("\(score) / 5")
-                    .font(.system(size: 30, weight: .bold))
+                    .font(CFont.getFont(size: 30, weight: .Bold))
                     .foregroundColor(ColorHelper.white)
                     .frame(width: 140, height: 80)
                     .background(score < 3 ? ColorHelper.orange : ColorHelper.teal)
             }
             .cornerRadius(20)
-            
-                
         }
         .padding(.leading)
         .foregroundColor(ColorHelper.orange)

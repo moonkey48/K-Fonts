@@ -41,13 +41,13 @@ struct Quiz_Result: View {
             VStack {
                 Text("Score")
                     .multilineTextAlignment(.center)
-                    .font(.system(size: 26, weight: .bold))
+                    .font(CFont.getFont(size: 26, weight: .Bold))
                     .foregroundColor(ColorHelper.gray_dark)
                 Spacer().frame(height: 10)
                 
                 Text("\(result) / 5")
                     .multilineTextAlignment(.center)
-                    .font(.system(size: 80, weight: .bold))
+                    .font(CFont.getFont(size: 80, weight: .Bold))
                     .foregroundColor(result < 3 ? ColorHelper.orange : ColorHelper.teal)
             }
             .zIndex(1)
@@ -64,7 +64,7 @@ struct Quiz_Result: View {
                 VStack{
                     Text("\(result_comment[result])")
                         .multilineTextAlignment(.leading)
-                        .font(.system(size: 26, weight: .bold))
+                        .font(CFont.getFont(size: 26, weight: .Bold))
                         .foregroundColor(ColorHelper.black)
                 }
                 .padding()

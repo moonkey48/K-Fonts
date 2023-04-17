@@ -12,7 +12,6 @@ struct Typo_Plus: View {
     
     var body: some View {
         ScrollView(showsIndicators: false) {
-            
             VStack(spacing: 0) {
                 Spacer().frame(height: 90)
                 HStack {

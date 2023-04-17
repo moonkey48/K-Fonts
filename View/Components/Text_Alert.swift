@@ -12,7 +12,7 @@ struct Text_Alert: View {
     var body: some View {
         Text(alert)
             .foregroundColor(ColorHelper.orange)
-            .font(.system(size: 20, weight: .bold))
+            .font(CFont.getFont(size: 20, weight: .Bold))
     }
 }
 
