@@ -94,7 +94,6 @@ struct Quiz_Result: View {
                     Button_Large(text: "Complete", color_text: ColorHelper.white, color_bg: ColorHelper.teal)
                 }
                 
-                
             }
             
             Spacer().frame(height: 25)

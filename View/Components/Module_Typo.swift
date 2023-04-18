@@ -31,17 +31,23 @@ struct Module_Typo: View {
         Spacer().frame(height: 10)
         
         VStack {
-            Spacer().frame(height: 10)
+            Spacer().frame(height: 7)
             Text(typoItem.description)
                 .font(CFont.getFont(size: 19,weight: .Medium))
                 .lineSpacing(5)
-            Spacer().frame(height: 10)
+            Spacer().frame(height: 7)
         }
-        .frame(maxWidth: .infinity, alignment: .center)
-        .padding(10)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(20)
         .background(ColorHelper.white)
         .cornerRadius(CGFloat(20))
         .shadow(color: ColorHelper.shadow, radius: 4, x: 0 , y: 0)
+        
+        Spacer().frame(height: 20)
+        
+        Spacer().frame(maxWidth: .infinity, maxHeight: 5)
+            .background(ColorHelper.white_dark)
+            .cornerRadius(5)
     }
 }
 

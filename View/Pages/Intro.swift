@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Intro: View {
+    @State var imgOpacity = 1
+    @State var moveTo = 1
     
     var body: some View {
         VStack(spacing: 0) {
@@ -32,8 +34,9 @@ struct Intro: View {
                 .frame(height: 20)
         }
         .padding()
-        .background(ColorHelper.gray_light)
         .ignoresSafeArea()
+        .background(ColorHelper.gray_light)
+        
     }
 }
 

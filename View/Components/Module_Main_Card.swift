@@ -37,14 +37,14 @@ struct Module_Main_Card: View {
             Spacer()
             
             HStack {
-                Tag_Font(tag_name: "\(fontData.tags[0])")
-                Tag_Font(tag_name: "\(fontData.tags[1])")
+                Tag_Font(tag_name: "# \(fontData.tags[0])")
+                Tag_Font(tag_name: "# \(fontData.tags[1])")
             }
             Spacer().frame(height: 10)
             
         }
         .padding()
-        .frame(width: 340, height: 330,alignment: .center)
+        .frame(width: 350, height: 330,alignment: .center)
         .background(ColorHelper.white)
         .foregroundColor(ColorHelper.black)
         .font(.system(size: 20,weight: .bold))

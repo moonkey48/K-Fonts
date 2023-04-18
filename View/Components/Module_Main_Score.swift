@@ -27,10 +27,11 @@ struct Module_Main_Score: View {
         }
         .padding(.leading)
         .foregroundColor(ColorHelper.orange)
-        .frame(height: 80)
+        .frame(width: .infinity,height: 80)
         .background(ColorHelper.white)
         .cornerRadius(CGFloat(20))
         .shadow(color: ColorHelper.shadow, radius: 4, x: 0 , y: 0)
+        
     }
 }
 

@@ -25,6 +25,7 @@ struct Module_Main_Typo_Plus: View {
         }
         .padding()
         .foregroundColor(ColorHelper.teal)
+        .frame(maxWidth: .infinity)
         .frame(height: 80)
         .background(ColorHelper.white)
         .cornerRadius(CGFloat(20))

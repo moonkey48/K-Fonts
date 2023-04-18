@@ -38,6 +38,7 @@ struct FontData {
 }
 
 
+
 public struct Font_Model {
     static let instance = Font_Model()
     

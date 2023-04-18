@@ -37,10 +37,10 @@ struct Module_Main_Bottom: View {
             }
             
         }
-        .frame(maxWidth: .infinity, maxHeight: 300, alignment: .leading)
         .background(ColorHelper.white)
         .foregroundColor(ColorHelper.black)
         .font(.system(size: 20,weight: .bold))
+        .frame(width: .infinity, height: 300, alignment: .center)
         .cornerRadius(CGFloat(20))
         .shadow(color: ColorHelper.shadow, radius: 4, x: 0 , y: 0)
     }
