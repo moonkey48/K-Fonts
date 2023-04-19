@@ -15,6 +15,8 @@ enum Level: Int {
 }
 
 struct Quiz_Result: View {
+    @State var pageNum: Int
+    @State var quizResultBefore: Bool = false
     var result: Int
     var quizModel = Quiz_Model.instance
     var result_comment = [
@@ -27,78 +29,82 @@ struct Quiz_Result: View {
     ]
     
     var body: some View {
-        VStack(spacing: 0) {
-            Spacer().frame(height: 90)
+        ZStack {
+            VStack(spacing: 0) {
+                Spacer().frame(height: 90)
 
-            HStack {
-                ForEach(1..<6) { number in
-                    Module_Quiz_Step(step: number, currentState: quizModel.currentQuizState[number - 1])
+                HStack {
+                    ForEach(1..<6) { number in
+                        Module_Quiz_Step(step: number, currentState: quizModel.currentQuizState[number - 1])
+                    }
                 }
-            }
-            
-            Spacer().frame(height: 20)
-            
-            VStack {
-                Text("Score")
-                    .multilineTextAlignment(.center)
-                    .font(CFont.getFont(size: 26, weight: .Bold))
-                    .foregroundColor(ColorHelper.gray_dark)
-                Spacer().frame(height: 10)
                 
-                Text("\(result) / 5")
-                    .multilineTextAlignment(.center)
-                    .font(CFont.getFont(size: 80, weight: .Bold))
-                    .foregroundColor(result < 3 ? ColorHelper.orange : ColorHelper.teal)
-            }
-            .zIndex(1)
-            .padding(30)
-            .frame(maxWidth: .infinity, maxHeight: 210, alignment: .center)
-            .background(ColorHelper.white)
-            .foregroundColor(ColorHelper.black)
-            .font(.system(size: 20,weight: .bold))
-            .cornerRadius(CGFloat(20))
-            
-            Spacer().frame(height: 20)
-            
-            VStack {
-                VStack{
-                    Text("\(result_comment[result])")
-                        .multilineTextAlignment(.leading)
+                Spacer().frame(height: 20)
+                
+                VStack {
+                    Text("Score")
+                        .multilineTextAlignment(.center)
                         .font(CFont.getFont(size: 26, weight: .Bold))
-                        .foregroundColor(ColorHelper.black)
+                        .foregroundColor(ColorHelper.gray_dark)
+                    Spacer().frame(height: 10)
+                    
+                    Text("\(result) / 5")
+                        .multilineTextAlignment(.center)
+                        .font(CFont.getFont(size: 80, weight: .Bold))
+                        .foregroundColor(result < 3 ? ColorHelper.orange : ColorHelper.teal)
                 }
-                .padding()
-                .frame(maxWidth: .infinity,alignment: .leading)
+                .zIndex(1)
+                .padding(30)
+                .frame(maxWidth: .infinity, maxHeight: 210, alignment: .center)
+                .background(ColorHelper.white)
+                .foregroundColor(ColorHelper.black)
+                .font(.system(size: 20,weight: .bold))
+                .cornerRadius(CGFloat(20))
+                
+                Spacer().frame(height: 20)
+                
+                VStack {
+                    VStack{
+                        Text("\(result_comment[result])")
+                            .multilineTextAlignment(.leading)
+                            .font(CFont.getFont(size: 26, weight: .Bold))
+                            .foregroundColor(ColorHelper.black)
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity,alignment: .leading)
+                    
+                    Spacer()
+                    
+                    Image("quiz_result")
+                        .resizable()
+                        .frame(width: 200 , height: 153)
+                        .offset(x:40)
+                }
+                .zIndex(1)
+                .frame(maxWidth: .infinity, maxHeight: 320, alignment: .center)
+                .background(ColorHelper.white)
+                .foregroundColor(ColorHelper.black)
+                .font(.system(size: 20,weight: .bold))
+                .cornerRadius(CGFloat(20))
                 
                 Spacer()
                 
-                Image("quiz_result")
-                    .resizable()
-                    .frame(width: 200 , height: 153)
-                    .offset(x:40)
-            }
-            .zIndex(1)
-            .frame(maxWidth: .infinity, maxHeight: 320, alignment: .center)
-            .background(ColorHelper.white)
-            .foregroundColor(ColorHelper.black)
-            .font(.system(size: 20,weight: .bold))
-            .cornerRadius(CGFloat(20))
-            
-            Spacer()
-            
-            HStack {
-                NavigationLink(destination: Quiz_Intro()) {
-                    Button_Large(text: "Try Again", color_text: ColorHelper.white, color_bg: ColorHelper.orange)
-                }
-                NavigationLink(destination: Main_Page()) {
-                    Button_Large(text: "Complete", color_text: ColorHelper.white, color_bg: ColorHelper.teal)
+                HStack {
+                    NavigationLink(destination: Quiz_Intro()) {
+                        Button_Large(text: "Try Again", color_text: ColorHelper.white, color_bg: ColorHelper.orange)
+                    }
+                    NavigationLink(destination: Main_Page()) {
+                        Button_Large(text: "Complete", color_text: ColorHelper.white, color_bg: ColorHelper.teal)
+                    }
+                    
                 }
                 
+                Spacer().frame(height: 25)
             }
             
-            Spacer().frame(height: 25)
-            
-            
+            if quizResultBefore == false && pageNum != 0 {
+                Module_Quiz_Result(quizNum: quizModel.randomQuizList[pageNum - 1],quizResultBefore: $quizResultBefore)
+            }
         }
         .padding()
         .background(ColorHelper.gray_light)
@@ -110,8 +116,8 @@ struct Quiz_Result: View {
     }
 }
 
-struct Quiz_Result_Previews: PreviewProvider {
-    static var previews: some View {
-        Quiz_Result(result: 2)
-    }
-}
+//struct Quiz_Result_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Quiz_Result(result: 2)
+//    }
+//}

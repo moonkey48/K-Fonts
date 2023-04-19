@@ -19,7 +19,7 @@ let package = Package(
             bundleIdentifier: "austin.com.k-fonts",
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .placeholder(icon: .sun),
+            appIcon: .asset("AppIcon"),
             accentColor: .presetColor(.green),
             supportedDeviceFamilies: [
                 .pad,

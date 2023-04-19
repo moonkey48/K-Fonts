@@ -37,7 +37,7 @@ struct Quiz_Intro: View {
                         .font(.system(size: 18, weight: .medium))
                     
                     Spacer().frame(height: 5)
-                    Text("- total 10  random questions")
+                    Text("- total 5  random questions")
                         .multilineTextAlignment(.leading)
                         .font(.system(size: 18, weight: .medium))
                     

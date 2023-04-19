@@ -52,14 +52,14 @@ struct Quiz_Page: View {
                 }
                 .lineSpacing(3)
                 .zIndex(1)
-                .padding(30)
-                .frame(maxWidth: .infinity, maxHeight: 270, alignment: .leading)
+                .padding(20)
+                .frame(maxWidth: .infinity, maxHeight: 330, alignment: .leading)
                 .background(ColorHelper.white)
                 .foregroundColor(ColorHelper.black)
                 .font(.system(size: 20,weight: .bold))
                 .cornerRadius(CGFloat(20))
                 
-                Spacer().frame(height: 25)
+                Spacer().frame(height: 20)
                 
                 VStack {
                     Button_Quiz(selectedAnswer: $selectedAnswer,buttonNum: 1, quizNum: quizNum)
@@ -93,7 +93,7 @@ struct Quiz_Page: View {
                 
                 if selectedAnswer != 0{
                     if pageNum == 4 {
-                        NavigationLink(destination: Quiz_Result(result: quizModel.currentQuizState.filter{ $0 == .correct }.count) ){
+                        NavigationLink(destination: Quiz_Result(pageNum: pageNum + 1, result: quizModel.currentQuizState.filter{ $0 == .correct }.count) ){
                             Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange )
                         }
                     } else {
