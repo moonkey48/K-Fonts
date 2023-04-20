@@ -14,7 +14,8 @@ I hope that Korean and Korean culture will be widely conveyed through the use of
 <div class="pull-right">
     Right Column(우측 단)
 </div>
-
+|first|second|
+|![simulator_screenshot_E05423F9-BE1D-4DA6-95BB-6FE753FCD7B1](https://user-images.githubusercontent.com/105622985/233304913-8247a24a-03a9-448f-8fc1-3c6ae513a2c6.png)|![simulator_screenshot_E05423F9-BE1D-4DA6-95BB-6FE753FCD7B1](https://user-images.githubusercontent.com/105622985/233304913-8247a24a-03a9-448f-8fc1-3c6ae513a2c6.png)|
 
 ![simulator_screenshot_E05423F9-BE1D-4DA6-95BB-6FE753FCD7B1](https://user-images.githubusercontent.com/105622985/233304913-8247a24a-03a9-448f-8fc1-3c6ae513a2c6.png)
 
