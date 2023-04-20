@@ -9,4 +9,9 @@ The K-Fonts app is designed to deliver information on various uses of fonts and 
 I hope that Korean and Korean culture will be widely conveyed through the use of various and better fonts along with Korean culture.
 
 
+![simulator_screenshot_E05423F9-BE1D-4DA6-95BB-6FE753FCD7B1](https://user-images.githubusercontent.com/105622985/233304913-8247a24a-03a9-448f-8fc1-3c6ae513a2c6.png)
+
+
+
 <a href="[https://www.freepik.com/free-vector/people-pointing-with-finger-hand_32883338.htm#page=2&query=humancharacter&position=26&from_view=search&track=ais](https://www.freepik.com/free-vector/people-pointing-with-finger-hand_32883338.htm#page=2&query=human%20character&position=26&from_view=search&track=ais)">Image by upklyak</a> on Freepik
+
