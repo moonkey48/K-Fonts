@@ -98,15 +98,15 @@ struct QuizResult: View {
                     NavigationLink(destination: QuizIntro()) {
                         ButtonLarge(
                             text: "Try Again",
-                            color_text: ColorHelper.white,
-                            color_bg: ColorHelper.orange
+                            colorText: ColorHelper.white,
+                            colorBg: ColorHelper.orange
                         )
                     }
                     NavigationLink(destination: MainPage()) {
                         ButtonLarge(
                             text: "Complete",
-                            color_text: ColorHelper.white,
-                            color_bg: ColorHelper.teal
+                            colorText: ColorHelper.white,
+                            colorBg: ColorHelper.teal
                         )
                     }
                     

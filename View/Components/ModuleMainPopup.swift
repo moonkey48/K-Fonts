@@ -36,8 +36,8 @@ struct ModuleMainPopup: View {
                 
                 ButtonLarge(
                     text: "Start Quiz",
-                    color_text: ColorHelper.white,
-                    color_bg: ColorHelper.orange
+                    colorText: ColorHelper.white,
+                    colorBg: ColorHelper.orange
                 )
                     .onTapGesture {
                         isPopup = false

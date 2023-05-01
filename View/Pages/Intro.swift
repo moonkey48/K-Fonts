@@ -29,8 +29,8 @@ struct Intro: View {
             NavigationLink(destination: IntroStart()){
                 ButtonLarge(
                     text: "About Korean Fonts",
-                    color_text: ColorHelper.white,
-                    color_bg: ColorHelper.orange
+                    colorText: ColorHelper.white,
+                    colorBg: ColorHelper.orange
                 )
             }
             

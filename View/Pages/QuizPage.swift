@@ -111,8 +111,8 @@ struct QuizPage: View {
                         ){
                             ButtonLarge(
                                 text: "Next",
-                                color_text: ColorHelper.white,
-                                color_bg: ColorHelper.orange
+                                colorText: ColorHelper.white,
+                                colorBg: ColorHelper.orange
                             )
                         }
                     } else {
@@ -125,8 +125,8 @@ struct QuizPage: View {
                         ){
                             ButtonLarge(
                                 text: "Next",
-                                color_text: ColorHelper.white,
-                                color_bg: ColorHelper.orange
+                                colorText: ColorHelper.white,
+                                colorBg: ColorHelper.orange
                             )
                         }
                     }
@@ -137,8 +137,8 @@ struct QuizPage: View {
                     
                     ButtonLarge(
                         text: "Next",
-                        color_text: ColorHelper.white,
-                        color_bg: ColorHelper.orange_light )
+                        colorText: ColorHelper.white,
+                        colorBg: ColorHelper.orange_light )
                         .onTapGesture {
                             self.alert_text = true
                         }

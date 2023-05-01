@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ModuleMainCard: View {
     let fontData: FontData
+    
     var body: some View {
         VStack {
             VStack {
@@ -37,8 +38,8 @@ struct ModuleMainCard: View {
             Spacer()
             
             HStack {
-                TagFont(tag_name: "# \(fontData.tags[0])")
-                TagFont(tag_name: "# \(fontData.tags[1])")
+                TagFont(tagName: "# \(fontData.tags[0])")
+                TagFont(tagName: "# \(fontData.tags[1])")
             }
             Spacer().frame(height: 10)
             

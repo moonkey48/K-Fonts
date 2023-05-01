@@ -57,8 +57,8 @@ struct IntroAnswer: View {
             
             ButtonLarge(
                 text: "Old",
-                color_text: ColorHelper.white,
-                color_bg: ColorHelper.teal
+                colorText: ColorHelper.white,
+                colorBg: ColorHelper.teal
             )
             
             Spacer()
@@ -67,8 +67,8 @@ struct IntroAnswer: View {
             NavigationLink(destination: MainPage()) {
                 ButtonLarge(
                     text: "Next",
-                    color_text: ColorHelper.white,
-                    color_bg: ColorHelper.orange
+                    colorText: ColorHelper.white,
+                    colorBg: ColorHelper.orange
                 )
                 
             }

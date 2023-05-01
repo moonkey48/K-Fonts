@@ -70,8 +70,8 @@ struct QuizIntro: View {
             ){
                 ButtonLarge(
                     text: "Next",
-                    color_text: ColorHelper.white,
-                    color_bg: ColorHelper.orange
+                    colorText: ColorHelper.white,
+                    colorBg: ColorHelper.orange
                 )
             }
             

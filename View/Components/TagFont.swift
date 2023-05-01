@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct TagFont: View {
-    let tag_name: String
+    let tagName: String
     var body: some View {
-        Text(tag_name)
+        Text(tagName)
             .padding()
             .foregroundColor(ColorHelper.white)
             .frame(maxWidth: .infinity, alignment: .center)
@@ -23,6 +23,6 @@ struct TagFont: View {
 
 struct TagFont_Previews: PreviewProvider {
     static var previews: some View {
-        TagFont(tag_name: "tag")
+        TagFont(tagName: "tag")
     }
 }

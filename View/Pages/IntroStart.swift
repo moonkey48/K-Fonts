@@ -55,8 +55,8 @@ struct IntroStart: View {
             NavigationLink(destination: IntroQuiz() ){
                 ButtonLarge(
                     text: "Start Learning",
-                    color_text: ColorHelper.white,
-                    color_bg: ColorHelper.orange
+                    colorText: ColorHelper.white,
+                    colorBg: ColorHelper.orange
                 )
             }
             

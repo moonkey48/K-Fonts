@@ -50,7 +50,10 @@ struct ModuleQuizResult: View {
             .cornerRadius(CGFloat(20))
             .padding()
             
-            ButtonLarge(text: "OK", color_text: ColorHelper.orange, color_bg: ColorHelper.white)
+            ButtonLarge(
+                text: "OK",
+                colorText: ColorHelper.orange,
+                colorBg: ColorHelper.white)
                 .padding()
                 .onTapGesture {
                     quizResultBefore = true

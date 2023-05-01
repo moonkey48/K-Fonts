@@ -9,8 +9,8 @@ import SwiftUI
 
 struct IntroQuiz: View {
 
-    @State var alert_text = false
-    @State var selected_button = ""
+    @State var alertText = false
+    @State var selectedButton = ""
     
     var body: some View {
         VStack(spacing: 0) {
@@ -50,37 +50,37 @@ struct IntroQuiz: View {
                 HStack {
                     ButtonLarge(
                         text: "Retro",
-                        color_text: selected_button == "Retro" ? ColorHelper.white: ColorHelper.teal,
-                        color_bg: selected_button == "Retro" ? ColorHelper.teal: ColorHelper.white
+                        colorText: selectedButton == "Retro" ? ColorHelper.white: ColorHelper.teal,
+                        colorBg: selectedButton == "Retro" ? ColorHelper.teal: ColorHelper.white
                         )
                         .onTapGesture {
-                            selected_button = "Retro"
+                            selectedButton = "Retro"
                         }
                     ButtonLarge(
                         text: "Old",
-                        color_text: selected_button == "Old" ? ColorHelper.white: ColorHelper.teal,
-                        color_bg: selected_button == "Old" ? ColorHelper.teal : ColorHelper.white
+                        colorText: selectedButton == "Old" ? ColorHelper.white: ColorHelper.teal,
+                        colorBg: selectedButton == "Old" ? ColorHelper.teal : ColorHelper.white
                         )
                         .onTapGesture {
-                            selected_button = "Old"
+                            selectedButton = "Old"
                         }
                 }
                 HStack {
                     ButtonLarge(
                         text: "Vintage",
-                        color_text: selected_button == "Vintage" ? ColorHelper.white : ColorHelper.teal,
-                        color_bg: selected_button == "Vintage" ? ColorHelper.teal : ColorHelper.white
+                        colorText: selectedButton == "Vintage" ? ColorHelper.white : ColorHelper.teal,
+                        colorBg: selectedButton == "Vintage" ? ColorHelper.teal : ColorHelper.white
                         )
                         .onTapGesture {
-                            selected_button = "Vintage"
+                            selectedButton = "Vintage"
                         }
                     ButtonLarge(
                         text: "Sharp",
-                        color_text: selected_button == "Sharp" ? ColorHelper.white: ColorHelper.teal,
-                        color_bg: selected_button == "Sharp" ? ColorHelper.teal : ColorHelper.white
+                        colorText: selectedButton == "Sharp" ? ColorHelper.white: ColorHelper.teal,
+                        colorBg: selectedButton == "Sharp" ? ColorHelper.teal : ColorHelper.white
                         )
                         .onTapGesture {
-                            selected_button = "Sharp"
+                            selectedButton = "Sharp"
                         }
                 }
             }
@@ -90,26 +90,29 @@ struct IntroQuiz: View {
             Spacer()
             
             TextAlert(alert: "Select button first")
-                .opacity(alert_text ? 1 : 0)
+                .opacity(alertText ? 1 : 0)
                 
             
             Spacer()
             
-            if selected_button != ""{
+            if selectedButton != ""{
                 NavigationLink(
-                    destination: IntroAnswer(input: selected_button)
+                    destination: IntroAnswer(input: selectedButton)
                 ){
-                    ButtonLarge(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange )
+                    ButtonLarge(
+                        text: "Next",
+                        colorText: ColorHelper.white,
+                        colorBg: ColorHelper.orange )
                 }
             } else {
                 
                 ButtonLarge(
                     text: "Next",
-                    color_text: ColorHelper.white,
-                    color_bg: ColorHelper.orange_light
+                    colorText: ColorHelper.white,
+                    colorBg: ColorHelper.orange_light
                     )
                     .onTapGesture {
-                        self.alert_text = true
+                        self.alertText = true
                     }
             }
             

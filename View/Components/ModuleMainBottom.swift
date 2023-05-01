@@ -36,8 +36,8 @@ struct ModuleMainBottom: View {
             NavigationLink(destination: QuizIntro()) {
                 ButtonLarge(
                     text: "Next",
-                    color_text: ColorHelper.white,
-                    color_bg: ColorHelper.orange
+                    colorText: ColorHelper.white,
+                    colorBg: ColorHelper.orange
                 )
             }
             
