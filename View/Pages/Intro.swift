@@ -26,8 +26,12 @@ struct Intro: View {
             
             Spacer().frame(height: 50)
             
-            NavigationLink(destination: Intro_Start()){
-                Button_Large(text: "About Korean Fonts", color_text: ColorHelper.white,  color_bg: ColorHelper.orange)
+            NavigationLink(destination: IntroStart()){
+                ButtonLarge(
+                    text: "About Korean Fonts",
+                    color_text: ColorHelper.white,
+                    color_bg: ColorHelper.orange
+                )
             }
             
             Spacer()

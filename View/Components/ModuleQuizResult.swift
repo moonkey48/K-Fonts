@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct Module_Quiz_Result: View {
+struct ModuleQuizResult: View {
     var quizNum: Int
-    @State var quizModel = Quiz_Model.instance
+    @State var quizModel = QuizModel.instance
     @State var reasonImage = "q1Option1"
     @Binding var quizResultBefore: Bool
 
@@ -34,7 +34,7 @@ struct Module_Quiz_Result: View {
                 Image("q\(quizNum + 1)Option\(1)")
                 Spacer().frame(height: 30)
                 Group {
-                    Text("\(Quiz_Model.instance.quizList[quizNum].wrongReason)")
+                    Text("\(QuizModel.instance.quizList[quizNum].wrongReason)")
                         .multilineTextAlignment(.center)
                         .foregroundColor(ColorHelper.black)
                         .font(CFont.getFont(size: 22, weight: .Medium))
@@ -50,7 +50,7 @@ struct Module_Quiz_Result: View {
             .cornerRadius(CGFloat(20))
             .padding()
             
-            Button_Large(text: "OK", color_text: ColorHelper.orange, color_bg: ColorHelper.white)
+            ButtonLarge(text: "OK", color_text: ColorHelper.orange, color_bg: ColorHelper.white)
                 .padding()
                 .onTapGesture {
                     quizResultBefore = true
@@ -63,8 +63,8 @@ struct Module_Quiz_Result: View {
     }
 }
 
-//struct Module_Quiz_Result_Previews: PreviewProvider {
+//struct ModuleQuizResult_Previews: PreviewProvider {
 //    static var previews: some View {
-//        Module_Quiz_Result(quizNum: 1)
+//        ModuleQuizResult(quizNum: 1)
 //    }
 //}

@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct Module_Typo: View {
+struct ModuleTypo: View {
+    
     let typoItem: TypoItem
     
     var body: some View {
@@ -51,8 +52,8 @@ struct Module_Typo: View {
     }
 }
 
-//struct Module_Typo_Previews: PreviewProvider {
+//struct ModuleTypo_Previews: PreviewProvider {
 //    static var previews: some View {
-//        Module_Typo()
+//        ModuleTypo()
 //    }
 //}

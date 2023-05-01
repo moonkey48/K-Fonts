@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct Quiz_Page: View {
+struct QuizPage: View {
     @State var pageNum: Int
     @State var quizData: QuizData
-    @State var quizModel = Quiz_Model.instance
+    @State var quizModel = QuizModel.instance
     @State var quizNum: Int = 1
     @State var isPopup = false
     @State var quizResultBefore: Bool = false
@@ -25,7 +25,10 @@ struct Quiz_Page: View {
                 
                 HStack {
                     ForEach(1..<6) { number in
-                        Module_Quiz_Step(step: number, currentState: pageNum + 1 == number ? .current : quizModel.currentQuizState[number - 1])
+                        ModuleQuizStep(
+                            step: number,
+                            currentState: pageNum + 1 == number ? .current : quizModel.currentQuizState[number - 1]
+                        )
                     }
                 }
                 
@@ -62,16 +65,24 @@ struct Quiz_Page: View {
                 Spacer().frame(height: 20)
                 
                 VStack {
-                    Button_Quiz(selectedAnswer: $selectedAnswer,buttonNum: 1, quizNum: quizNum)
+                    ButtonQuiz(selectedAnswer: $selectedAnswer,buttonNum: 1, quizNum: quizNum)
                         .onTapGesture {
                             selectedAnswer = 1
-                            quizResultCurrent = quizModel.checkAnswer(pageNum: pageNum, quizNum: quizData.id, selected:  selectedAnswer)
+                            quizResultCurrent = quizModel.checkAnswer(
+                                pageNum: pageNum,
+                                quizNum: quizData.id,
+                                selected:  selectedAnswer
+                            )
                         }
                     Spacer().frame(height: 10)
-                    Button_Quiz(selectedAnswer: $selectedAnswer, buttonNum: 2, quizNum: quizNum)
+                    ButtonQuiz(selectedAnswer: $selectedAnswer, buttonNum: 2, quizNum: quizNum)
                         .onTapGesture {
                             selectedAnswer = 2
-                            quizResultCurrent = quizModel.checkAnswer(pageNum: pageNum, quizNum: quizData.id, selected:  selectedAnswer)
+                            quizResultCurrent = quizModel.checkAnswer(
+                                pageNum: pageNum,
+                                quizNum: quizData.id,
+                                selected:  selectedAnswer
+                            )
                         }
                 }
                 Spacer()
@@ -79,7 +90,7 @@ struct Quiz_Page: View {
                     Spacer().frame(height: 10)
                     ZStack {
                         
-                        Text_Alert(alert: "Select button first")
+                        TextAlert(alert: "Select button first")
                             .opacity(alert_text ? 1 : 0)
                         
                         if alert_text != true {
@@ -93,12 +104,30 @@ struct Quiz_Page: View {
                 
                 if selectedAnswer != 0{
                     if pageNum == 4 {
-                        NavigationLink(destination: Quiz_Result(pageNum: pageNum + 1, result: quizModel.currentQuizState.filter{ $0 == .correct }.count) ){
-                            Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange )
+                        NavigationLink(
+                            destination: QuizResult(
+                                pageNum: pageNum + 1,
+                                result: quizModel.currentQuizState.filter{ $0 == .correct }.count)
+                        ){
+                            ButtonLarge(
+                                text: "Next",
+                                color_text: ColorHelper.white,
+                                color_bg: ColorHelper.orange
+                            )
                         }
                     } else {
-                        NavigationLink(destination: Quiz_Page(pageNum: pageNum + 1, quizData: quizModel.quizList[quizModel.randomQuizList[pageNum + 1]], quizResultBefore: quizResultCurrent) ){
-                            Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange )
+                        NavigationLink(
+                            destination: QuizPage(
+                                pageNum: pageNum + 1,
+                                quizData: quizModel.quizList[quizModel.randomQuizList[pageNum + 1]],
+                                quizResultBefore: quizResultCurrent
+                            )
+                        ){
+                            ButtonLarge(
+                                text: "Next",
+                                color_text: ColorHelper.white,
+                                color_bg: ColorHelper.orange
+                            )
                         }
                     }
                     
@@ -106,7 +135,10 @@ struct Quiz_Page: View {
                     Spacer().frame(height: 10)
                 } else {
                     
-                    Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange_light )
+                    ButtonLarge(
+                        text: "Next",
+                        color_text: ColorHelper.white,
+                        color_bg: ColorHelper.orange_light )
                         .onTapGesture {
                             self.alert_text = true
                         }
@@ -122,7 +154,10 @@ struct Quiz_Page: View {
             
             
             if quizResultBefore == false && pageNum != 0 {
-                Module_Quiz_Result(quizNum: quizModel.randomQuizList[pageNum - 1],quizResultBefore: $quizResultBefore)
+                ModuleQuizResult(
+                    quizNum: quizModel.randomQuizList[pageNum - 1],
+                    quizResultBefore: $quizResultBefore
+                )
             }
         }
         .onAppear {
@@ -132,8 +167,11 @@ struct Quiz_Page: View {
     }
 }
 
-//struct Quiz_Page_Previews: PreviewProvider {
+//struct QuizPage_Previews: PreviewProvider {
 //    static var previews: some View {
-//        Quiz_Page(pageNum: 0, quizData: Quiz_Model.instance.quizList[Quiz_Model.instance.randomQuizList[0]])
+//        QuizPage(
+//            pageNum: 0,
+//            quizData: QuizModel.instance.quizList[Quiz_Model.instance.randomQuizList[0]]
+//        )
 //    }
 //}

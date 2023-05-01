@@ -7,12 +7,15 @@
 
 import SwiftUI
 
-struct Button_Quiz: View {
+struct ButtonQuiz: View {
+    
+    /// 퀴즈에서 선택된 수에 따라 컬러가 달라지기 때문에 Binding으로 받아옴
     @Binding var selectedAnswer: Int
     let buttonNum: Int
     let quizNum: Int
     
     var body: some View {
+        
         if selectedAnswer == buttonNum {
             VStack {
                 Image("q\(quizNum + 1)Option\(buttonNum)")
@@ -38,9 +41,9 @@ struct Button_Quiz: View {
     }
 }
 
-//struct Button_Quiz_Previews: PreviewProvider {
+//struct ButtonQuiz_Previews: PreviewProvider {
 //    static var previews: some View {
-//        Button_Quiz(buttonNum: 1)
-//        
+//        ButtonQuiz(buttonNum: 1)
+//
 //    }
 //}

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Module_Main_Typo_Plus: View {
+struct ModuleMainTypoPlus: View {
     var body: some View {
     
         HStack(alignment: .center) {
@@ -16,7 +16,7 @@ struct Module_Main_Typo_Plus: View {
                 .font(CFont.getFont(size: 22, weight: .Bold))
             
             Spacer()
-            NavigationLink(destination: Typo_Plus()) {
+            NavigationLink(destination: TypoPlus()) {
                 Image(systemName: "chevron.right")
                     .multilineTextAlignment(.trailing)
                     .font(CFont.getFont(size: 25, weight: .Bold))
@@ -35,6 +35,6 @@ struct Module_Main_Typo_Plus: View {
 
 struct Module_Main_Typo_Plus_Previews: PreviewProvider {
     static var previews: some View {
-        Module_Main_Typo_Plus()
+        ModuleMainTypoPlus()
     }
 }

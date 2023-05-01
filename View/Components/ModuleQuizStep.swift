@@ -7,13 +7,8 @@
 
 import SwiftUI
 
-//enum QuizState {
-//    case correct
-//    case incorrect
-//    case yet
-//}
-
-struct Module_Quiz_Step: View {
+struct ModuleQuizStep: View {
+    
     let step: Int
     let currentState: QuizState
     
@@ -67,8 +62,8 @@ struct Module_Quiz_Step: View {
     }
 }
 
-struct Module_Quiz_Step_Previews: PreviewProvider {
+struct ModuleQuizStep_Previews: PreviewProvider {
     static var previews: some View {
-        Module_Quiz_Step(step: 1, currentState: .current)
+        ModuleQuizStep(step: 1, currentState: .current)
     }
 }

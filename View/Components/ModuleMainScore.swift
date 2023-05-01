@@ -7,8 +7,11 @@
 
 import SwiftUI
 
-struct Module_Main_Score: View {
-    var score: Int = Quiz_Model.instance.lastScore
+struct ModuleMainScore: View {
+    
+    ///QuizModel에 저장된 데이터 가져오기
+    var score: Int = QuizModel.instance.lastScore
+    
     var body: some View {
         HStack(alignment: .center) {
             Text("K-Font Level")
@@ -35,8 +38,8 @@ struct Module_Main_Score: View {
     }
 }
 
-struct Module_Main_Score_Previews: PreviewProvider {
+struct ModuleMainScore_Previews: PreviewProvider {
     static var previews: some View {
-        Module_Main_Score()
+        ModuleMainScore()
     }
 }

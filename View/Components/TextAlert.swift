@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Text_Alert: View {
+struct TextAlert: View {
     let alert: String
     var body: some View {
         Text(alert)
@@ -16,8 +16,8 @@ struct Text_Alert: View {
     }
 }
 
-struct Text_Alert_Previews: PreviewProvider {
+struct TextAlert_Previews: PreviewProvider {
     static var previews: some View {
-        Text_Alert(alert: "select button first")
+        TextAlert(alert: "select button first")
     }
 }

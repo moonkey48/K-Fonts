@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Module_Main_Card: View {
+struct ModuleMainCard: View {
     let fontData: FontData
     var body: some View {
         VStack {
@@ -37,8 +37,8 @@ struct Module_Main_Card: View {
             Spacer()
             
             HStack {
-                Tag_Font(tag_name: "# \(fontData.tags[0])")
-                Tag_Font(tag_name: "# \(fontData.tags[1])")
+                TagFont(tag_name: "# \(fontData.tags[0])")
+                TagFont(tag_name: "# \(fontData.tags[1])")
             }
             Spacer().frame(height: 10)
             
@@ -53,8 +53,17 @@ struct Module_Main_Card: View {
     }
 }
 
-struct Module_Main_Card_Previews: PreviewProvider {
+struct ModuleMainCard_Previews: PreviewProvider {
     static var previews: some View {
-        Module_Main_Card(fontData: FontData(name: "EF_watermelonSalad", id: 1, mainName: "fontMain1", subName: "fontSub1", subDescription: "Hello my name is dohyeon", tags: [.Trust, .Personal]))
+        ModuleMainCard(
+            fontData: FontData(
+                name: "EF_watermelonSalad",
+                id: 1,
+                mainName: "fontMain1",
+                subName: "fontSub1",
+                subDescription: "Hello my name is dohyeon",
+                tags: [.Trust, .Personal]
+            )
+        )
     }
 }

@@ -7,11 +7,17 @@
 
 import SwiftUI
 
-struct Intro_Answer: View {
+struct IntroAnswer: View {
+    
+    /// 받은 입력 값
     let input: String
+    
     var body: some View {
+        
         VStack(spacing: 0) {
+            
             Spacer().frame(height: 90)
+            
             VStack {
                 Spacer().frame(height: 60)
                 Image("Intro_eng")
@@ -31,9 +37,6 @@ struct Intro_Answer: View {
                     .foregroundColor(ColorHelper.orange)
                     .font(.system(size: 26, weight: .bold))
                 
-                
-    
-                
                 Spacer().frame(height: 70)
             }
             .frame(maxWidth: .infinity, alignment: .center)
@@ -51,13 +54,22 @@ struct Intro_Answer: View {
                 .foregroundColor(ColorHelper.teal)
                 .font(.system(size: 22, weight: .semibold))
             Spacer().frame(height: 10)
-            Button_Large(text: "Old", color_text: ColorHelper.white, color_bg: ColorHelper.teal)
+            
+            ButtonLarge(
+                text: "Old",
+                color_text: ColorHelper.white,
+                color_bg: ColorHelper.teal
+            )
             
             Spacer()
             
 
-            NavigationLink(destination: Main_Page()) {
-                Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange )
+            NavigationLink(destination: MainPage()) {
+                ButtonLarge(
+                    text: "Next",
+                    color_text: ColorHelper.white,
+                    color_bg: ColorHelper.orange
+                )
                 
             }
             
@@ -69,16 +81,16 @@ struct Intro_Answer: View {
         .ignoresSafeArea()
         .navigationBarItems(trailing:
             Button(action: {}) {
-                NavigationLink(destination: Main_Page()) {
-                    Button_Skip()
+                NavigationLink(destination: MainPage()) {
+                    ButtonSkip()
                 }
             }
         )
     }
 }
 
-struct Intro_Answer_Previews: PreviewProvider {
+struct IntroAnswer_Previews: PreviewProvider {
     static var previews: some View {
-        Intro_Answer(input: "")
+        IntroAnswer(input: "")
     }
 }

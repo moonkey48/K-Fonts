@@ -7,8 +7,11 @@
 
 import SwiftUI
 
-struct Module_Main_Popup: View {
+struct ModuleMainPopup: View {
+    
+    /// popup 이 false되어 있는 경우는 보여지지 않는다.
     @Binding var isPopup: Bool
+    
     var body: some View {
         VStack {
             VStack {
@@ -31,7 +34,11 @@ struct Module_Main_Popup: View {
                     .offset(y:10)
                
                 
-                Button_Large(text: "Start Quiz", color_text: ColorHelper.white, color_bg: ColorHelper.orange)
+                ButtonLarge(
+                    text: "Start Quiz",
+                    color_text: ColorHelper.white,
+                    color_bg: ColorHelper.orange
+                )
                     .onTapGesture {
                         isPopup = false
                     }
@@ -52,6 +59,6 @@ struct Module_Main_Popup: View {
 //struct Module_Main_Popup_Previews: PreviewProvider {
 //    var isPopup: Bool = true
 //    static var previews: some View {
-//        Module_Main_Popup(isPopup: $isPopup)
+//        ModuleMainPopup(isPopup: $isPopup)
 //    }
 //}

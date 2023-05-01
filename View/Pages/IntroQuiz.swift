@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Intro_Quiz: View {
+struct IntroQuiz: View {
 
     @State var alert_text = false
     @State var selected_button = ""
@@ -40,7 +40,7 @@ struct Intro_Quiz: View {
             .cornerRadius(CGFloat(20))
             .background(ColorHelper.white)
             .foregroundColor(ColorHelper.black)
-            .font(.system(size: 20,weight: .bold))
+            .font(.system(size: 20, weight: .bold))
             .cornerRadius(CGFloat(20))
             
             Spacer()
@@ -48,21 +48,37 @@ struct Intro_Quiz: View {
             
             VStack {
                 HStack {
-                    Button_Large(text: "Retro", color_text: selected_button == "Retro" ? ColorHelper.white : ColorHelper.teal,color_bg: selected_button == "Retro" ? ColorHelper.teal : ColorHelper.white )
+                    ButtonLarge(
+                        text: "Retro",
+                        color_text: selected_button == "Retro" ? ColorHelper.white: ColorHelper.teal,
+                        color_bg: selected_button == "Retro" ? ColorHelper.teal: ColorHelper.white
+                        )
                         .onTapGesture {
                             selected_button = "Retro"
                         }
-                    Button_Large(text: "Old", color_text: selected_button == "Old" ? ColorHelper.white : ColorHelper.teal, color_bg: selected_button == "Old" ? ColorHelper.teal : ColorHelper.white )
+                    ButtonLarge(
+                        text: "Old",
+                        color_text: selected_button == "Old" ? ColorHelper.white: ColorHelper.teal,
+                        color_bg: selected_button == "Old" ? ColorHelper.teal : ColorHelper.white
+                        )
                         .onTapGesture {
                             selected_button = "Old"
                         }
                 }
                 HStack {
-                    Button_Large(text: "Vintage", color_text: selected_button == "Vintage" ? ColorHelper.white : ColorHelper.teal, color_bg: selected_button == "Vintage" ? ColorHelper.teal : ColorHelper.white )
+                    ButtonLarge(
+                        text: "Vintage",
+                        color_text: selected_button == "Vintage" ? ColorHelper.white : ColorHelper.teal,
+                        color_bg: selected_button == "Vintage" ? ColorHelper.teal : ColorHelper.white
+                        )
                         .onTapGesture {
                             selected_button = "Vintage"
                         }
-                    Button_Large(text: "Sharp", color_text: selected_button == "Sharp" ? ColorHelper.white : ColorHelper.teal, color_bg: selected_button == "Sharp" ? ColorHelper.teal : ColorHelper.white)
+                    ButtonLarge(
+                        text: "Sharp",
+                        color_text: selected_button == "Sharp" ? ColorHelper.white: ColorHelper.teal,
+                        color_bg: selected_button == "Sharp" ? ColorHelper.teal : ColorHelper.white
+                        )
                         .onTapGesture {
                             selected_button = "Sharp"
                         }
@@ -73,24 +89,29 @@ struct Intro_Quiz: View {
             
             Spacer()
             
-            Text_Alert(alert: "Select button first")
+            TextAlert(alert: "Select button first")
                 .opacity(alert_text ? 1 : 0)
                 
             
             Spacer()
             
             if selected_button != ""{
-                NavigationLink(destination: Intro_Answer(input: selected_button)){
-                    Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange )
+                NavigationLink(
+                    destination: IntroAnswer(input: selected_button)
+                ){
+                    ButtonLarge(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange )
                 }
             } else {
                 
-                Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange_light )
+                ButtonLarge(
+                    text: "Next",
+                    color_text: ColorHelper.white,
+                    color_bg: ColorHelper.orange_light
+                    )
                     .onTapGesture {
                         self.alert_text = true
                     }
             }
-//            Spacer().frame(height: 10)
             
         }
         .padding()
@@ -98,16 +119,16 @@ struct Intro_Quiz: View {
         .ignoresSafeArea()
         .navigationBarItems(trailing:
             Button(action: {}) {
-                NavigationLink(destination: Main_Page()) {
-                    Button_Skip()
+                NavigationLink(destination: MainPage()) {
+                    ButtonSkip()
                 }
             }
         )
     }
 }
 
-struct Intro_Quiz_Previews: PreviewProvider {
+struct IntroQuiz_Previews: PreviewProvider {
     static var previews: some View {
-        Intro_Quiz()
+        IntroQuiz()
     }
 }

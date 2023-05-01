@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Intro_Start: View {
+struct IntroStart: View {
     var body: some View {
         VStack(spacing: 0) {
             Spacer().frame(height: 90)
@@ -52,8 +52,12 @@ struct Intro_Start: View {
             .cornerRadius(CGFloat(20))
             
             Spacer()
-            NavigationLink(destination: Intro_Quiz() ){
-                Button_Large(text: "Start Learning", color_text: ColorHelper.white, color_bg: ColorHelper.orange )
+            NavigationLink(destination: IntroQuiz() ){
+                ButtonLarge(
+                    text: "Start Learning",
+                    color_text: ColorHelper.white,
+                    color_bg: ColorHelper.orange
+                )
             }
             
             Spacer().frame(height: 10)
@@ -64,16 +68,16 @@ struct Intro_Start: View {
         .ignoresSafeArea()
         .navigationBarItems(trailing:
             Button(action: {}) {
-                NavigationLink(destination: Main_Page()) {
-                    Button_Skip()
+                NavigationLink(destination: MainPage()) {
+                    ButtonSkip()
                 }
             }
         )
     }
 }
 
-struct Intro_Start_Previews: PreviewProvider {
+struct IntroStart_Previews: PreviewProvider {
     static var previews: some View {
-        Intro_Start()
+        IntroStart()
     }
 }

@@ -7,16 +7,18 @@
 
 import SwiftUI
 
-struct Button_Skip: View {
+struct ButtonSkip: View {
+    
     var body: some View {
         Text("Skip")
             .font(CFont.getFont(size: 18, weight: .Bold))
             .foregroundColor(ColorHelper.teal)
     }
+    
 }
 
-struct Button_Skip_Previews: PreviewProvider {
+struct ButtonSkip_Previews: PreviewProvider {
     static var previews: some View {
-        Button_Skip()
+        ButtonSkip()
     }
 }

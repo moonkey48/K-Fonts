@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct Typo_Plus: View {
-    let typoModel = Typo_Model.instance
+struct TypoPlus: View {
+    let typoModel = TypoModel.instance
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -23,7 +23,14 @@ struct Typo_Plus: View {
                 Spacer().frame(height: 20)
                 
                 ForEach(typoModel.TypoList, id: \.id) { item in
-                    Module_Typo(typoItem: TypoItem(id: item.id, title: item.title, imageName: item.imageName, description: item.description))
+                    ModuleTypo(
+                        typoItem: TypoItem(
+                            id: item.id,
+                            title: item.title,
+                            imageName: item.imageName,
+                            description: item.description
+                        )
+                    )
                     
                     Spacer().frame(height: 20)
                 }
@@ -38,8 +45,8 @@ struct Typo_Plus: View {
     }
 }
 
-struct Typo_Plus_Previews: PreviewProvider {
+struct TypoPlus_Previews: PreviewProvider {
     static var previews: some View {
-        Typo_Plus()
+        TypoPlus()
     }
 }

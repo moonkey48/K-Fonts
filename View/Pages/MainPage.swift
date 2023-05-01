@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct Main_Page: View {
+struct MainPage: View {
     @State var isPopup = true
-    var quizModel = Quiz_Model.instance
-    let fontList = Font_Model.instance.fontList
+    var quizModel = QuizModel.instance
+    let fontList = FontModel.instance.fontList
     
     var body: some View {
         ZStack {
@@ -19,20 +19,20 @@ struct Main_Page: View {
                 VStack {
                     TabView {
                         ForEach(fontList, id: \.id) { font in
-                            Module_Main_Card(fontData: font)
+                            ModuleMainCard(fontData: font)
                         }
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                     .frame(width: 360, height: 410)
                     
-                    Module_Main_Typo_Plus()
+                    ModuleMainTypoPlus()
                     
                     Spacer().frame(height: 20)
-                    Module_Main_Score()
+                    ModuleMainScore()
                     Spacer().frame(height: 20)
                     
                     
-                    Module_Main_Bottom()
+                    ModuleMainBottom()
                     
                     Spacer().frame(height: 20)
                 }
@@ -45,15 +45,15 @@ struct Main_Page: View {
             
             
             if isPopup {
-                Module_Main_Popup(isPopup: $isPopup)
+                ModuleMainPopup(isPopup: $isPopup)
             }
         }
         .navigationBarHidden(true)
     }
 }
 
-struct Main_Page_Previews: PreviewProvider {
+struct MainPage_Previews: PreviewProvider {
     static var previews: some View {
-        Main_Page()
+        MainPage()
     }
 }

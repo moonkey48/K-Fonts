@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct Module_Main_Bottom: View {
+struct ModuleMainBottom: View {
+    
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
@@ -32,8 +33,12 @@ struct Module_Main_Bottom: View {
                 .resizable()
                 .frame(width: 241, height: 128)
                 .offset(x:30,y:10)
-            NavigationLink(destination: Quiz_Intro()) {
-                Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange)
+            NavigationLink(destination: QuizIntro()) {
+                ButtonLarge(
+                    text: "Next",
+                    color_text: ColorHelper.white,
+                    color_bg: ColorHelper.orange
+                )
             }
             
         }
@@ -48,6 +53,6 @@ struct Module_Main_Bottom: View {
 
 struct Module_Main_Bottom_Previews: PreviewProvider {
     static var previews: some View {
-        Module_Main_Bottom()
+        ModuleMainBottom()
     }
 }

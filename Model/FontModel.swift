@@ -39,10 +39,8 @@ struct FontData {
 
 
 
-public struct Font_Model {
-    static let instance = Font_Model()
-    
-    
+public struct FontModel {
+    static let instance = FontModel()
     
     let fontList: [FontData] = [
         FontData(name: "neurimbo Gothic", id: 1, mainName: "fontMain1", subName: "fontSub1", subDescription: "Trendy with just the letters", tags: [.Trendy, .Retro]),

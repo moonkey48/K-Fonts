@@ -14,11 +14,13 @@ enum Level: Int {
     case platinum
 }
 
-struct Quiz_Result: View {
+struct QuizResult: View {
+    
     @State var pageNum: Int
     @State var quizResultBefore: Bool = false
+    
     var result: Int
-    var quizModel = Quiz_Model.instance
+    var quizModel = QuizModel.instance
     var result_comment = [
         "New languages are difficult for everyone. Study a little bit more on the main page",
         "New languages are difficult for everyone. Study a little bit more on the main page",
@@ -35,7 +37,10 @@ struct Quiz_Result: View {
 
                 HStack {
                     ForEach(1..<6) { number in
-                        Module_Quiz_Step(step: number, currentState: quizModel.currentQuizState[number - 1])
+                        ModuleQuizStep(
+                            step: number,
+                            currentState: quizModel.currentQuizState[number - 1]
+                        )
                     }
                 }
                 
@@ -90,11 +95,19 @@ struct Quiz_Result: View {
                 Spacer()
                 
                 HStack {
-                    NavigationLink(destination: Quiz_Intro()) {
-                        Button_Large(text: "Try Again", color_text: ColorHelper.white, color_bg: ColorHelper.orange)
+                    NavigationLink(destination: QuizIntro()) {
+                        ButtonLarge(
+                            text: "Try Again",
+                            color_text: ColorHelper.white,
+                            color_bg: ColorHelper.orange
+                        )
                     }
-                    NavigationLink(destination: Main_Page()) {
-                        Button_Large(text: "Complete", color_text: ColorHelper.white, color_bg: ColorHelper.teal)
+                    NavigationLink(destination: MainPage()) {
+                        ButtonLarge(
+                            text: "Complete",
+                            color_text: ColorHelper.white,
+                            color_bg: ColorHelper.teal
+                        )
                     }
                     
                 }
@@ -103,7 +116,10 @@ struct Quiz_Result: View {
             }
             
             if quizResultBefore == false && pageNum != 0 {
-                Module_Quiz_Result(quizNum: quizModel.randomQuizList[pageNum - 1],quizResultBefore: $quizResultBefore)
+                ModuleQuizResult(
+                    quizNum: quizModel.randomQuizList[pageNum - 1],
+                    quizResultBefore: $quizResultBefore
+                )
             }
         }
         .padding()
@@ -116,8 +132,8 @@ struct Quiz_Result: View {
     }
 }
 
-//struct Quiz_Result_Previews: PreviewProvider {
+//struct QuizResult_Previews: PreviewProvider {
 //    static var previews: some View {
-//        Quiz_Result(result: 2)
+//        QuizResult(result: 2)
 //    }
 //}

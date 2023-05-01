@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-struct Quiz_Intro: View {
-    var quizModel = Quiz_Model.instance
+struct QuizIntro: View {
+    
+    var quizModel = QuizModel.instance
+    
     var body: some View {
         VStack(spacing: 0) {
             Spacer().frame(height: 90)
@@ -60,8 +62,17 @@ struct Quiz_Intro: View {
             .cornerRadius(CGFloat(20))
             
             Spacer()
-            NavigationLink(destination: Quiz_Page(pageNum: 0, quizData: quizModel.quizList[quizModel.randomQuizList[0]])){
-                Button_Large(text: "Next", color_text: ColorHelper.white, color_bg: ColorHelper.orange )
+            NavigationLink(
+                destination: QuizPage(
+                    pageNum: 0,
+                    quizData: quizModel.quizList[quizModel.randomQuizList[0]]
+                )
+            ){
+                ButtonLarge(
+                    text: "Next",
+                    color_text: ColorHelper.white,
+                    color_bg: ColorHelper.orange
+                )
             }
             
             Spacer().frame(height: 10)
@@ -90,8 +101,8 @@ struct Quiz_Intro: View {
     }
 }
 
-struct Quiz_Intro_Previews: PreviewProvider {
+struct QuizIntro_Previews: PreviewProvider {
     static var previews: some View {
-        Quiz_Intro()
+        QuizIntro()
     }
 }

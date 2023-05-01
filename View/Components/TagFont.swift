@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Tag_Font: View {
+struct TagFont: View {
     let tag_name: String
     var body: some View {
         Text(tag_name)
@@ -21,8 +21,8 @@ struct Tag_Font: View {
     }
 }
 
-struct Tag_Font_Previews: PreviewProvider {
+struct TagFont_Previews: PreviewProvider {
     static var previews: some View {
-        Tag_Font(tag_name: "tag")
+        TagFont(tag_name: "tag")
     }
 }

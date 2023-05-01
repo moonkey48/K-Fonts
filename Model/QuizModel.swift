@@ -23,7 +23,7 @@ enum QuizState {
     case current
 }
 
-class Quiz_Model {
+class QuizModel {
     var lastScore: Int = 0
     var currentQuizState:[QuizState] = [.yet, .yet, .yet, .yet, .yet]
     var randomQuizList: [Int] = [1,2,3,4,5]
@@ -56,6 +56,6 @@ class Quiz_Model {
         }
     }
     
-    static let instance = Quiz_Model()
+    static let instance = QuizModel()
     private init(){}
 }
